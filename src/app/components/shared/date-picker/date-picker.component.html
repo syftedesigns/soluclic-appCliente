@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="CloseDatePicker();" icon-only>
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title style="font-size: 14px !important">
+            Programación
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col align-self="center">
+                <ion-card>
+                    <form>
+                        <div class="form-group">
+                            <mat-form-field class="w-75">
+                                <mat-label>Selecciona una fecha</mat-label>
+                                <input onkeypress="return false;" matInput [matDatepicker]="picker" placeholder="dd/MM/YYYY">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <!--<mat-form-field>
+                                <input [(ngModel)]="dateHour" name="datetime2" type="datetime" matInput placeholder="Selecciona la hora">
+                                <mat-icon (click)="DisplayHourPopup('datetime');" class="material-icons" matSuffix>access_time</mat-icon>
+                            </mat-form-field>-->
+                            <ion-item>
+                                <ion-label style="font-size: 12px !important">Selecciona la hora</ion-label>
+                                <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="dateHour" name="datetime"></ion-datetime>
+                                <mat-icon class="material-icons" matSuffix>access_time</mat-icon>
+                            </ion-item>
+                            <div class="space-10"></div>
+                            <mat-hint style="font-size: 10px !important">Pulsa los iconos para desplegar la ayuda rapida</mat-hint>
+                        </div>
+                        <div class="form-group">
+                            <ion-button expand="full" shape="round" color="secondary">
+                                Configurar
+                            </ion-button>
+                        </div>
+                    </form>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

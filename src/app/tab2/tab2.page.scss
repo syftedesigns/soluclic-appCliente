@@ -1,1 +1,27 @@
+.back-toolbar {
+    --border-color: transparent !important;
+    --border-width: 0px !important;
+    --opacity: 0 !important
+}
 
+.back-button-color {
+    --color: #2DC5B0 !important;
+}
+
+@media only screen and (max-width: 320px) {
+    .title-tap {
+        margin-left: 10%
+    }
+}
+
+@media only screen and (min-width: 325px) and (max-width: 375px) {
+    .title-tap {
+        margin-left: 13%
+    }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 425px) {
+    .title-tap {
+        margin-left: 22%
+    }
+}

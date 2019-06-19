@@ -1,0 +1,21 @@
+ion-list>* {
+    padding: 20px
+}
+
+ion-label {
+    margin-left: 1em
+}
+
+* {
+    background-color: transparent !important;
+    --background: transparent !important
+}
+
+.explorer {
+    --background: rgb(197, 193, 193) !important;
+}
+
+.custom-toolbar {
+    --background: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+    --color: white !important
+}

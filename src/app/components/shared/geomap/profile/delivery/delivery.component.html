@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="modal.dismiss();" icon-only>
+                <mat-icon class="material-icons">clear</mat-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Delivery</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col size="12" align-self="center">
+                <ion-card>
+                    <ion-card-header>
+                        <div style="border: 2px solid #707070; border-radius: 50%" clas="profile-border2">
+                            <img class="picture-circle" src="./assets/images/demo/1.jpg" alt="delivery">
+                        </div>
+                    </ion-card-header>
+                    <ion-title class="h5">
+                        <mat-hint>
+                            Luis vargas
+                        </mat-hint>
+                    </ion-title>
+                    <ion-card-content padding>
+                        <div class="space-20"></div>
+                        <ion-card-subtitle>
+                            <mat-radio-group class="rating-block">
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </mat-radio-group>
+                        </ion-card-subtitle>
+                        <ion-col padding>
+                            <mat-divider style="border: 1px solid #BBBBBB" class="text-center"></mat-divider>
+                        </ion-col>
+                        <ion-item lines="full">
+                            <ion-label>Carlos Estarita</ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>Altagracia San Jose Encarnación </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>04129972431 </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>Codigo zip 141414 </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>test@hotmail.com</ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row align="center">
+                <ion-col size="6">
+                    <ion-button (click)="sendMsg();" expand="full" shape="round" color="primary">
+                        <mat-icon class="material-icons">chat</mat-icon>
+                        Chatear
+                    </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-button expand="full" shape="round" color="secondary">
+                        <mat-icon class="material-icons">call</mat-icon>
+                        Llamar
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

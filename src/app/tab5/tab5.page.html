@@ -1,0 +1,89 @@
+<div class="space-150"></div>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col align="center">
+                <ion-header>
+                    <ion-toolbar class="back-toolbar">
+                        <ion-buttons slot="start">
+                            <ion-back-button class="back-button-color" defaultHref="/tabs/tab3"></ion-back-button>
+                        </ion-buttons>
+                        <ion-title class="text-left title-tap">
+                            Perfil
+                        </ion-title>
+                    </ion-toolbar>
+                </ion-header>
+            </ion-col>
+        </ion-row>
+        <!-- profile -->
+        <ion-row>
+            <ion-col offset="2" offset-md="3" size="7" align="center">
+                <div class="profile-border">
+                    <img class="picture-circle" src="./assets/images/demo/1.jpg" alt="profile">
+                    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                        <ion-fab-button (click)="DisplayActionSheet();">
+                            <ion-icon name="camera"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                </div>
+            </ion-col>
+        </ion-row>
+        <!-- profile card -->
+        <ion-row>
+            <ion-col size="12" align="center">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title class="h4">
+                            Carlos Estarita&nbsp;
+                            <small>
+                              <ion-icon (click)="helper.show();" 
+                              #helper="matTooltip"
+                              matTooltipPosition="above"
+                              aria-label="Esta pagina nos permite cargar la información que querremos que el delivery vea"
+                              matTooltip="Datos de perfil que le proporcionaremos al delivery"
+                              name="help-circle-outline"></ion-icon>
+                            </small>
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                            <mat-radio-group class="rating-block">
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </mat-radio-group>
+                        </ion-card-subtitle>
+                        <ion-col padding>
+                            <mat-divider style="border: 1px solid #BBBBBB" class="text-center"></mat-divider>
+                        </ion-col>
+                    </ion-card-header>
+                    <ion-card-content class="profile-data">
+                        <!--<p>
+                            No tienes ninguna información de contacto, <strong>Carga una para poder solicitar un delivery o instalación</strong>.
+                        </p>-->
+                        <ion-item lines="full">
+                            <ion-label>Carlos Estarita</ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>Altagracia San Jose Encarnación </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>04129972431 </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>Codigo zip 141414 </ion-label>
+                        </ion-item>
+                        <ion-item lines="full">
+                            <ion-label>test@hotmail.com</ion-label>
+                        </ion-item>
+                        <div class="space-30"></div>
+                        <ion-button (click)="ProfilePopup();" expand="block" shape="round" color="primary">
+                            <ion-icon name="create"></ion-icon>Datos de contacto
+                        </ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <!-- end profile card -->
+    </ion-grid>
+</ion-content>

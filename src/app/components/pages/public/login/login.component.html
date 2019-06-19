@@ -1,0 +1,41 @@
+<ion-header translucent="true" no-border>
+    <ion-toolbar class="toolbar-swipe">
+        <ion-buttons slot="end">
+            <ion-button (click)="TutorialPage();" class="btn-help">
+                <ion-icon name="color-wand"></ion-icon>
+                <ion-label>Tutorial</ion-label>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" class="default-bg">
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col size="12" align-self="center">
+                <ion-card style="border: 0px !important">
+                    <div class="space-50"></div>
+                    <ion-card-header>
+                        <ion-img class="w-50 offset-3" src="./assets/images/logo-white-sm.png"></ion-img>
+                    </ion-card-header>
+                    <div class="space-80"></div>
+                    <ion-card-content padding>
+                        <ion-button (click)="SignInPage();" class="button-color" shape="round" expand="full">
+                            Entrar
+                        </ion-button>
+                        <div class="space-15"></div>
+                        <ion-button (click)="SignUpPage();" class="button-color" shape="round" expand="full">
+                            Registrarme
+                        </ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer no-border>
+    <ion-toolbar class="toolbar-footer">
+        <ion-title class="text-center" style="font-size: 12px !important">
+            Quiero ser delivery
+        </ion-title>
+    </ion-toolbar>
+</ion-footer>

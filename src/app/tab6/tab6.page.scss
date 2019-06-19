@@ -1,0 +1,22 @@
+ion-list>* {
+    font-size: 14px !important;
+    padding: 10px
+}
+
+.custom-toolbar {
+    --background: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+    --color: white !important
+}
+
+.geomap-menu-button {
+    --color: white !important
+}
+
+.noScroll {
+    overflow: hidden;
+}
+
+mgl-map {
+    height: 100%;
+    width: 100%;
+}

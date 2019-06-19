@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
+  public sliderOpts: any = {
+    autoplay: true,
+    speed: 500
+  };
+  public sliderOpts2: any = {
+    autoplay: true,
+    speed: 800
+  };
   constructor() {}
 
 }

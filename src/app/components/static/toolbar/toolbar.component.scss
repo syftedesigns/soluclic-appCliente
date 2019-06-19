@@ -1,0 +1,66 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+.logo-mg {
+    margin-left: 2em;
+    width: 80%
+}
+
+.toolbar-bg {
+    --background: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+    /*--border-color: transparent !important;
+    --border-style: none !important;
+    --color: white !important;
+    --padding-top: 0px !important;
+    --padding-start: 0px !important;
+    --padding-right: 0px !important;
+    --padding-end: 0px !important;*/
+}
+
+.logo {
+    position: relative;
+    left: 0.5em;
+}
+
+.toolbar-header {
+    background: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 50%, rgba(45, 197, 176, 1) 100%) !important;
+}
+
+.icon-color {
+    --color: white !important
+}
+
+.toolbar-slider>ion-avatar {
+    border: 2px solid white;
+    padding: 20px
+}
+
+.lupe-icon {
+    color: #0593AF
+}
+
+.explorer-style {
+    background-color: rgba(255, 255, 255, 0.6) !important
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.notify-num {
+    position: relative;
+    left: -0.5em;
+    top: -0.5em
+}
+
+.bar-explorer {
+    --background: rgba(255, 255, 255, 0.6) !important;
+    --icon-color: #0593AF !important
+}
+
+.menuToggle {
+    --color: white !important
+}

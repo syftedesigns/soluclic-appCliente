@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="modal.dismiss(null);" icon-only>
+                <mat-icon class="material-icons">clear</mat-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Emergencia</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col size="12" align-self="center">
+                <ion-card>
+                    <ion-card-header>
+                        <mat-icon style="font-size: 45px !important" class="material-icons">
+                            notification_important
+                        </mat-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <form>
+                            <div class="form-group">
+                                <mat-form-field class="w-100" appearance="fill">
+                                    <mat-label>¿Cuál es el problema?</mat-label>
+                                    <input matInput placeholder="Detalles del problema...">
+                                    <mat-icon #help="matTooltip" (click)="help.show();" aria-label="Sugerencias que deben utilizarse para emergencia" matTooltip="Problemas similares: Delivery no llega, Ayuda técnica, Problemas personales" matSuffix>device_unknown</mat-icon>
+                                    <mat-hint>Debes escribir todos los detalles posibles de cualquier problema que estes experimentando con esta operación</mat-hint>
+                                </mat-form-field>
+                            </div>
+                            <div class="space-20"></div>
+                            <div class="form-group">
+                                <ion-button shape="round" expand="full" color="primary">
+                                    Enviar Ticket
+                                </ion-button>
+                            </div>
+                        </form>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

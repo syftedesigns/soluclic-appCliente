@@ -1,0 +1,34 @@
+.body-modal {
+    --background: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+    background-color: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important
+}
+
+* {
+    /*--background: linear-gradient(800deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+    background-color: linear-gradient(800deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important*/
+    --background: transparent !important;
+    background: transparent !important
+}
+
+ion-list>* {
+    /*color: white !important;
+    --color: white !important*/
+    font-size: 12px !important
+}
+
+.toolbar-custom {
+    --background: linear-gradient(500deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
+}
+
+.back-button-color {
+    --color: white !important;
+    --background: transparent !important
+}
+
+.color-default {
+    color: #6B6A6A
+}
+
+.color-title {
+    color: #646464
+}

@@ -1,0 +1,102 @@
+<ion-menu style="z-index: 1000" side="start" menuId="first" contentId="first">
+    <!--<ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>Start Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item (click)="OpenStores();">Menu Item</ion-item>
+            <ion-item (click)="OpenCategories();">Menu Item</ion-item>
+            <ion-item (click)="OpenOrders();">Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+        </ion-list>
+    </ion-content>-->
+    <ion-header>
+        <ion-toolbar class="toolbar-picture" padding>
+            <div class="profile-border w-50 text-center offset-2">
+                <img class="picture-circle" src="./assets/images/demo/1.jpg" />
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <div class="space-15"></div>
+        <ion-row align="left">
+            <ion-col size="12" align-self="left">
+                <ion-list lines="none">
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">search</mat-icon>
+                        <ion-label class="offset-1">
+                            Inicio
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">notification_important</mat-icon>
+                        <ion-label class="offset-1">
+                            Notificaciones
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">settings</mat-icon>
+                        <ion-label class="offset-1">
+                            Mi cuenta
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">shopping_cart</mat-icon>
+                        <ion-label class="offset-1">
+                            Ordenes
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">favorite</mat-icon>
+                        <ion-label class="offset-1">
+                            Favoritos
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">local_library</mat-icon>
+                        <ion-label class="offset-1">
+                            Servicios
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+                <div class="space-15"></div>
+                <mat-divider></mat-divider>
+                <div class="space-15"></div>
+                <ion-list lines="none">
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">dashboard</mat-icon>
+                        <ion-label class="offset-1">
+                            Categorías
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">loyalty</mat-icon>
+                        <ion-label class="offset-1">
+                            Ofertas de la semana
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">extension</mat-icon>
+                        <ion-label class="offset-1">
+                            Tiendas oficiales
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+                <div class="space-15"></div>
+                <mat-divider></mat-divider>
+                <div class="space-15"></div>
+                <ion-list lines="none">
+                    <ion-item>
+                        <mat-icon matPrefix class="material-icons">help</mat-icon>
+                        <ion-label class="offset-1">
+                            Ayuda
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+</ion-menu>

@@ -1,0 +1,76 @@
+<ion-grid>
+    <!-- toolbar -->
+    <ion-row>
+        <ion-col align-self-start>
+            <ion-buttons>
+                <ion-menu-button class="menuToggle"></ion-menu-button>
+            </ion-buttons>
+        </ion-col>
+        <ion-col class="offset-2">
+            <ion-img class="w-25 logo" src="./assets/images/logo-white-sm.png"></ion-img>
+        </ion-col>
+        <ion-col>
+            <ion-buttons>
+                <ion-button [routerLink]="['/cart']" class="icon-color">
+                    <ion-icon class="cart-ico" style="margin-left: 1.5em" slot="icon-only" name="cart"></ion-icon>
+                    <ion-badge class="notify-num" color="danger">1</ion-badge>
+                </ion-button>
+            </ion-buttons>
+        </ion-col>
+        <ion-col size="12" align-self="center">
+            <ion-searchbar class="bar-explorer"></ion-searchbar>
+        </ion-col>
+    </ion-row>
+    <div *ngIf="menu.displayCategories" class="space-15"></div>
+    <!-- end toolbar -->
+    <!-- explorer -->
+    <!--<ion-row>
+        <ion-col size="12">
+            <form>
+                <ion-col class="form-group">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-icon class="lupe-icon" matPrefix>search</mat-icon>
+                        <input class="explorer" matInput placeholder="Buscar productos">
+                    </mat-form-field>
+                </ion-col>
+            </form>
+        </ion-col>
+    </ion-row>-->
+    <!-- end explorer -->
+    <!-- slider cat -->
+    <ion-row *ngIf="menu.displayCategories">
+        <ion-col align-self="center" size="12">
+            <ion-slides style="margin-top: -5%">
+                <ion-slide class="toolbar-slider">
+                    <ion-avatar>
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                </ion-slide>
+                <ion-slide class="toolbar-slider">
+                    <ion-avatar class="">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                    <ion-avatar class="offset-1">
+                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                </ion-slide>
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+    <!-- end slider cat -->
+</ion-grid>

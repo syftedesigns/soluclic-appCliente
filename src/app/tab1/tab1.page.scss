@@ -1,4 +1,42 @@
 .welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+.back-button-color {
+    --color: #2DC5B0 !important;
+}
+
+.back-toolbar {
+    --border-color: transparent !important;
+    --border-width: 0px !important;
+    --opacity: 0 !important
+}
+
+.divider-mg {
+    margin-left: 2.5em
+}
+
+.rating-block>* {
+    color: #FCDE0F;
+    font-size: 16px;
+    padding: 10px
+}
+
+@media only screen and (max-width: 320px) {
+    .title-tap {
+        margin-left: 10%
+    }
+}
+
+@media only screen and (min-width: 325px) and (max-width: 375px) {
+    .title-tap {
+        margin-left: 15%
+    }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 425px) {
+    .title-tap {
+        margin-left: 22%
+    }
 }

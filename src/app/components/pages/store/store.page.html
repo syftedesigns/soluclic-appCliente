@@ -1,0 +1,348 @@
+<div class="space-150"></div>
+<ion-content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="secondary">
+                <ion-back-button class="back-button-color" defaultHref="/tabs/tab1"></ion-back-button>
+            </ion-buttons>
+            <ion-buttons slot="primary">
+                <ion-button (click)="OpenExplorerStore();">
+                    <ion-icon slot="icon-only" name="arrow-dropdown"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>Samsung</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-grid>
+        <ion-row align-center>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row align-center>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row align-center>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="6">
+                <ion-card>
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img alt="Tv" src="./assets/images/demo/tv@2x.png"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title style="font-size: 14px !important" class="h5 product-title" align="center">
+                            Tv Ultra HD
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    $48.98
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        Samsung
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

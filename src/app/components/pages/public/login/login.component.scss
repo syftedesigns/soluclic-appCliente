@@ -1,0 +1,34 @@
+/** {
+    background-image: url(../../../../../assets/images/Cliente.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}*/
+
+.toolbar-white {
+    --background-color: transparent !important;
+    --color: #FFFFFF !important;
+    color: #FFFFFF !important
+}
+
+.default-bg {
+    --background: url(../../../../../assets/images/480.png) no-repeat !important;
+    --background-size: cover !important;
+}
+
+.toolbar-swipe {
+    --background: transparent !important
+}
+
+.button-color {
+    --background: #2DC5B0 !important
+}
+
+.toolbar-footer {
+    --background: transparent !important;
+    --color: white !important
+}
+
+.btn-help {
+    --color: white !important;
+    font-weight: bold;
+}

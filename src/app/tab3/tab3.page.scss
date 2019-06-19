@@ -1,1 +1,72 @@
+.card-absolute {
+    position: absolute;
+    left: -1em;
+}
 
+.card-style {
+    background-color: rgba(79, 76, 239, 0.6);
+}
+
+.budget {
+    --bullet-background: rgba(79, 76, 239, 1) !important;
+    --bullet-background-active: rgba(79, 76, 239, 1) !important
+}
+
+.title-border {
+    border-bottom: 2.5px solid rgba(79, 76, 239, 1)
+}
+
+.product-title {
+    font-size: 18px !important;
+    --color: rgba(107, 106, 106, 1);
+}
+
+.fab-button-cart {
+    position: relative;
+    top: -2.8em;
+    --color: #2DC5B0;
+    --background: #FFFFFF;
+}
+
+.fab-button-wishlist {
+    position: relative;
+    top: -2.8em;
+    --color: #2DC5B0;
+    --background: #FFFFFF;
+    position: relative;
+    left: 1.3em;
+}
+
+.card-text-w {
+    width: 10em !important
+}
+
+.discount-chip {
+    --background: #FE353C;
+    --color: #FFFFFF;
+    margin-top: -0.5em
+}
+
+.card-text-w>* {
+    margin-left: -1.5em
+}
+
+.price-title {
+    color: #6B6A6A;
+}
+
+.product-card-bg {
+    --background: linear-gradient(100deg, rgba(223, 221, 221, 1) 10%, rgba(223, 221, 221, 1) 100%, rgb(102, 30, 30) 100%) !important;
+}
+
+@media only screen and (max-width: 320px) {
+    .iphone-sm-mg {
+        margin-top: 50%
+    }
+}
+
+@media only screen and (min-width: 325px) and (max-width: 360px) {
+    .iphone-sm-mg {
+        margin-top: 10%
+    }
+}

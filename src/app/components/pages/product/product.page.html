@@ -1,0 +1,317 @@
+<div class="space-150"></div>
+<ion-content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button class="back-button-color" defaultHref="/tabs/tab3"></ion-back-button>
+            </ion-buttons>
+            <ion-title>
+                Samsung
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <!-- product details -->
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col align-self="center" size="12">
+                <ion-card>
+                    <ion-fab vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button size="small" color="default">
+                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header>
+                        <ion-slides pager="true">
+                            <ion-slide>
+                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                            </ion-slide>
+                            <ion-slide>
+                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                            </ion-slide>
+                            <ion-slide>
+                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                            </ion-slide>
+                            <ion-slide>
+                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                            </ion-slide>
+                        </ion-slides>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <h1 class="color-default">TV ultra HD</h1>
+                        <ion-row>
+                            <ion-col>
+                                <mat-radio-group class="rating-block">
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon name="star-outline"></ion-icon>
+                                </mat-radio-group>
+                            </ion-col>
+                            <ion-col>
+                                <mat-hint> 4 opiniones </mat-hint>
+                            </ion-col>
+                        </ion-row>
+                        <mat-hint>445 vendidos</mat-hint>
+                        <div class="space-30"></div>
+                        <ion-row>
+                            <ion-col>
+                                <h1 class="color-default">$48.98</h1>
+                            </ion-col>
+                            <ion-col size="1">
+                                <h5 class="material-icons font-28">
+                                    keyboard_tab
+                                </h5>
+                            </ion-col>
+                            <ion-col>
+                                <h1 class="color-default">$52.52</h1>
+                            </ion-col>
+                        </ion-row>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                        <div class="space-15"></div>
+                        <h3 class="color-default">Descripción</h3>
+                        <div class="space-15"></div>
+                        <p style="font-size: 12px !important" class="color-default">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        </p>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                        <div class="space-15"></div>
+                        <ion-row>
+                            <ion-col>
+                                <form>
+                                    <div class="form-group">
+                                        <p>
+                                            <mat-form-field appearance="fill" class="w-75">
+                                                <mat-label>Cantidad</mat-label>
+                                                <mat-icon matPrefix>add</mat-icon>
+                                                <input type="number" matInput>
+                                                <mat-icon matSuffix>remove</mat-icon>
+                                            </mat-form-field>
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <ion-button [routerLink]="['/tabs/checkout/startup']" expand="block" shape="round" color="primary">
+                                            Comprar
+                                        </ion-button>
+                                    </div>
+                                </form>
+                            </ion-col>
+                        </ion-row>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button size="small" color="default">
+                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                        <div class="space-15"></div>
+                        <ion-chip color="secondary">
+                            <ion-icon name="medical"></ion-icon>
+                            <ion-label>
+                                Garantía
+                            </ion-label>
+                        </ion-chip>
+                        <ion-chip color="secondary">
+                            <ion-icon name="medical"></ion-icon>
+                            <ion-label>
+                                Poco uso
+                            </ion-label>
+                        </ion-chip>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                        <div class="space-15"></div>
+                        <h3 class="color-default">
+                            Reviews
+                        </h3>
+                        <div class="space-15"></div>
+                        <ion-row>
+                            <ion-col size="12">
+                                <mat-card style="border-top: 1px solid #cecece">
+                                    <mat-card-content>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </mat-card-content>
+                                </mat-card>
+                                <div class="space-15"></div>
+                            </ion-col>
+                            <ion-col size="12">
+                                <mat-card style="border-top: 1px solid #cecece">
+                                    <mat-card-content>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </mat-card-content>
+                                </mat-card>
+                                <div class="space-15"></div>
+                            </ion-col>
+                            <ion-col size="12">
+                                <mat-card style="border-top: 1px solid #cecece">
+                                    <mat-card-content>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    </mat-card-content>
+                                </mat-card>
+                                <div class="space-15"></div>
+                            </ion-col>
+                        </ion-row>
+                        <div class="space-15"></div>
+                        <mat-divider></mat-divider>
+                        <div class="space-15"></div>
+                        <h2 class="color-default">
+                            Productos relacionados
+                        </h2>
+                        <!-- related products -->
+                        <ion-slides pager="true">
+                            <ion-slide>
+                                <ion-card>
+                                    <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                        <ion-fab-button size="small" color="default">
+                                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
+                                        </ion-fab-button>
+                                    </ion-fab>
+                                    <ion-card-header>
+                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                                    </ion-card-header>
+                                    <ion-card-content>
+                                        <h2 class="color-default">
+                                            Tv Ultra HD
+                                        </h2>
+                                        <div class="space-15"></div>
+                                        <p style="font-size: 12px !important">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        </p>
+                                        <div class="space-15"></div>
+                                        <ion-row>
+                                            <ion-col size="7">
+                                                <mat-hint style="position: relative; top: 0.5em">
+                                                    $64.54
+                                                </mat-hint>
+                                            </ion-col>
+                                            <ion-col size="4">
+                                                <ion-chip color="danger">
+                                                    <ion-label>
+                                                        -45%
+                                                    </ion-label>
+                                                </ion-chip>
+                                            </ion-col>
+                                        </ion-row>
+                                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                            <ion-fab-button size="small" color="default">
+                                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
+                                            </ion-fab-button>
+                                        </ion-fab>
+                                        <div class="space-15"></div>
+                                        <ion-chip color="secondary">
+                                            <ion-icon name="medical"></ion-icon>
+                                            <ion-label>
+                                                Instalación
+                                            </ion-label>
+                                        </ion-chip>
+                                    </ion-card-content>
+                                </ion-card>
+                            </ion-slide>
+                            <ion-slide>
+                                <ion-card>
+                                    <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                        <ion-fab-button size="small" color="default">
+                                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
+                                        </ion-fab-button>
+                                    </ion-fab>
+                                    <ion-card-header>
+                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                                    </ion-card-header>
+                                    <ion-card-content>
+                                        <h2 class="color-default">
+                                            Tv Ultra HD
+                                        </h2>
+                                        <div class="space-15"></div>
+                                        <p style="font-size: 12px !important">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        </p>
+                                        <div class="space-15"></div>
+                                        <ion-row>
+                                            <ion-col size="7">
+                                                <mat-hint style="position: relative; top: 0.5em">
+                                                    $64.54
+                                                </mat-hint>
+                                            </ion-col>
+                                            <ion-col size="4">
+                                                <ion-chip color="danger">
+                                                    <ion-label>
+                                                        -45%
+                                                    </ion-label>
+                                                </ion-chip>
+                                            </ion-col>
+                                        </ion-row>
+                                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                            <ion-fab-button size="small" color="default">
+                                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
+                                            </ion-fab-button>
+                                        </ion-fab>
+                                        <div class="space-15"></div>
+                                        <ion-chip color="secondary">
+                                            <ion-icon name="medical"></ion-icon>
+                                            <ion-label>
+                                                Instalación
+                                            </ion-label>
+                                        </ion-chip>
+                                    </ion-card-content>
+                                </ion-card>
+                            </ion-slide>
+                            <ion-slide>
+                                <ion-card>
+                                    <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                        <ion-fab-button size="small" color="default">
+                                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
+                                        </ion-fab-button>
+                                    </ion-fab>
+                                    <ion-card-header>
+                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                                    </ion-card-header>
+                                    <ion-card-content>
+                                        <h2 class="color-default">
+                                            Tv Ultra HD
+                                        </h2>
+                                        <div class="space-15"></div>
+                                        <p style="font-size: 12px !important">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        </p>
+                                        <div class="space-15"></div>
+                                        <ion-row>
+                                            <ion-col size="7">
+                                                <mat-hint style="position: relative; top: 0.5em">
+                                                    $64.54
+                                                </mat-hint>
+                                            </ion-col>
+                                            <ion-col size="4">
+                                                <ion-chip color="danger">
+                                                    <ion-label>
+                                                        -45%
+                                                    </ion-label>
+                                                </ion-chip>
+                                            </ion-col>
+                                        </ion-row>
+                                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                                            <ion-fab-button size="small" color="default">
+                                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
+                                            </ion-fab-button>
+                                        </ion-fab>
+                                        <div class="space-15"></div>
+                                        <ion-chip color="secondary">
+                                            <ion-icon name="medical"></ion-icon>
+                                            <ion-label>
+                                                Instalación
+                                            </ion-label>
+                                        </ion-chip>
+                                    </ion-card-content>
+                                </ion-card>
+                            </ion-slide>
+                        </ion-slides>
+                        <!-- end related products -->
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- end product details -->
+</ion-content>

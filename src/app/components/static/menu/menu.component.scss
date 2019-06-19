@@ -1,0 +1,22 @@
+.profile-border {
+    border: 1px solid rgba(112, 112, 112, 1);
+    border-radius: 50%;
+    padding: 5px;
+    position: relative;
+    left: 1em;
+}
+
+.picture-circle {
+    border-radius: 50%;
+}
+
+ion-list>* {
+    color: #646464 !important;
+    --color: #646464 !important;
+    padding: 10px;
+}
+
+.toolbar-picture {
+    --background: #2DC5B0 !important;
+    background: #2DC5B0 !important
+}
