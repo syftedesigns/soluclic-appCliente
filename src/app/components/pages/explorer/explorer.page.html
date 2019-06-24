@@ -1,9 +1,68 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>explorer</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<div class="space-150"></div>
 <ion-content>
-
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>
+                Busqueda {{CatName}}
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col *ngFor="let prod of ProdList; let i = index" size="6">
+                <ion-card *ngIf="prod.status ==='1'">
+                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab-button class="fab-button-wishlist" size="small">
+                            <ion-icon class="font-20" name="heart-empty"></ion-icon>
+                        </ion-fab-button>
+                    </ion-fab>
+                    <ion-card-header [routerLink]="['/tabs/product/' + prod.product_id]" class="product-card-bg">
+                        <div class="space-10"></div>
+                        <ion-img [alt]="prod.meta_title" [src]="URL_IMG + 'image/' + prod.image"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content size="12" class="card-text-w">
+                        <ion-card-title [routerLink]="['/tabs/product/' + prod.product_id]" style="font-size: 14px !important" class="h5 product-title" align="center">
+                            {{prod.meta_title}}
+                        </ion-card-title>
+                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                            <ion-fab-button class="fab-button-cart" size="small">
+                                <ion-icon class="font-20" name="cart"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+                        <p style="font-size: 8px;" padding class="text-left w-100">
+                            {{prod.meta_description}}
+                        </p>
+                        <ion-row align="center">
+                            <ion-col>
+                                <h5 class="price-title">
+                                    ${{prod.price | number}}
+                                </h5>
+                            </ion-col>
+                            <ion-col *ngIf="prod.descuento">
+                                <ion-chip class="discount-chip">
+                                    -15%
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                        <!--<ion-row>
+                            <ion-col align="center">
+                                <ion-chip>
+                                    <ion-avatar>
+                                        <img [alt]="prod.name" [src]="URL_IMG + 'image/' + StoreDetails.image">
+                                    </ion-avatar>
+                                    <ion-label>
+                                        {{StoreDetails.name}}
+                                    </ion-label>
+                                </ion-chip>
+                                <br>
+                                <h5>
+                                    Con instalación
+                                </h5>
+                            </ion-col>
+                        </ion-row>-->
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -16,31 +16,33 @@ export class MenuComponent implements OnInit {
               public modal: ModalController) { }
 
   ngOnInit() {}
-  openMenu(): void {
-  }
-
-  async OpenStores() {
-    this.menu.close();
-    const modal = await this.modal.create({
-      component: StoresComponent,
-      cssClass: 'modal-stores'
-    });
-    await modal.present();
-  }
-  async OpenCategories() {
-    this.menu.close();
-    const modal = await this.modal.create({
-      component: CategoriesComponent,
-      cssClass: 'modal-stores'
-    });
-    await modal.present();
-  }
-  async OpenOrders() {
-    this.menu.close();
-    const modal = await this.modal.create({
-      component: OrdersComponent,
-      cssClass: 'modal-stores'
-    });
-    await modal.present();
+  // Que se encarga de crear modales según el link
+  async OpenMenu(linkForOpen: string) {
+    let modal;
+    switch (linkForOpen) {
+      case 'categories':
+          this.menu.close();
+          modal = await this.modal.create({
+            component: CategoriesComponent,
+            cssClass: 'modal-stores'
+          });
+          await modal.present();
+          break;
+        case 'stores':
+            this.menu.close();
+            modal = await this.modal.create({
+              component: StoresComponent,
+              cssClass: 'modal-stores'
+            });
+            await modal.present();
+            break;
+        case 'orders':
+            this.menu.close();
+            modal = await this.modal.create({
+              component: OrdersComponent,
+              cssClass: 'modal-stores'
+            });
+            await modal.present();
+    }
   }
 }

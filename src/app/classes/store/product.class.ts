@@ -2,13 +2,11 @@
 export class ObjectProductClass {
     constructor(
         // tslint:disable-next-line:variable-name
-        public meta_title: string,
-        // tslint:disable-next-line:variable-name
         public product_id: string | number,
         public model: string,
         public quantity: string | number,
         // tslint:disable-next-line:variable-name
-        public stock_status_id: strign | number,
+        public stock_status_id: string | number,
         public image: string,
         // tslint:disable-next-line:variable-name
         public manufacturer_id: string | number,
@@ -29,7 +27,7 @@ export class ObjectProductClass {
         public minimum: number | string,
         // tslint:disable-next-line:variable-name
         public sort_order: number | string,
-        public status: boolean | number | string,
+        public status: string,
         public viewed: number | string,
         // tslint:disable-next-line:variable-name
         public date_added: Date | string,
@@ -53,9 +51,9 @@ export class ObjectProductClass {
         public catdata: string,
         public catname: string,
         public stock: string,
+        public alianza: string,
         // tslint:disable-next-line:variable-name
         public attribute_id?: number | string,
-        public alianza: string,
         public text?: string,
         // tslint:disable-next-line:variable-name
         public filter_id?: string | number,
@@ -76,6 +74,7 @@ export class ObjectProductClass {
         public jan?: string,
         public isbn?: string,
         public mpn?: string,
+        public alianzaLogo?: string
     ) {
     }
 }

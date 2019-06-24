@@ -11,33 +11,33 @@
         </ion-col>
         <ion-col>
             <ion-buttons>
-                <ion-button [routerLink]="['/cart']" class="icon-color">
+                <ion-button [routerLink]="['/tabs/cart']" class="icon-color">
                     <ion-icon class="cart-ico" style="margin-left: 1.5em" slot="icon-only" name="cart"></ion-icon>
                     <ion-badge class="notify-num" color="danger">1</ion-badge>
                 </ion-button>
             </ion-buttons>
         </ion-col>
         <ion-col size="12" align-self="center">
-            <ion-searchbar class="bar-explorer"></ion-searchbar>
+            <form>
+                <ion-searchbar (keyup)="ClearSearch($event.key);" [(ngModel)]="Explorer" name="explorer" (ionClear)="ProductFindIndex = []" (ionChange)="ExplorerProducts($event);" class="bar-explorer"></ion-searchbar>
+            </form>
+            <ion-col *ngIf="menu.isSearching" style="position: absolute;" class="w-100 explorer-bg" align-self="center" size="12">
+                <ion-list class="explorer-bg" lines="none">
+                    <ion-item [routerLink]="['/tabs/explorer/' + item.category_id + '/' + item.product_id]" [queryParams]="{'catname': item.catname}" *ngFor="let item of ProductFindIndex">
+                        <ion-label>
+                            <mat-hint>
+                                <span [innerHTML]="item.name"></span>
+                            </mat-hint>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
         </ion-col>
     </ion-row>
     <div *ngIf="menu.displayCategories" class="space-15"></div>
     <!-- end toolbar -->
     <!-- explorer -->
-    <!--<ion-row>
-        <ion-col size="12">
-            <form>
-                <ion-col class="form-group">
-                    <mat-form-field class="w-100" appearance="fill">
-                        <mat-icon class="lupe-icon" matPrefix>search</mat-icon>
-                        <input class="explorer" matInput placeholder="Buscar productos">
-                    </mat-form-field>
-                </ion-col>
-            </form>
-        </ion-col>
-    </ion-row>-->
-    <!-- end explorer -->
-    <!-- slider cat -->
+
     <ion-row *ngIf="menu.displayCategories">
         <ion-col align-self="center" size="12">
             <ion-slides style="margin-top: -5%">

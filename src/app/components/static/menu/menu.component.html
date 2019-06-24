@@ -66,7 +66,7 @@
                 <mat-divider></mat-divider>
                 <div class="space-15"></div>
                 <ion-list lines="none">
-                    <ion-item>
+                    <ion-item (click)="OpenMenu('categories');">
                         <mat-icon matPrefix class="material-icons">dashboard</mat-icon>
                         <ion-label class="offset-1">
                             Categorías
@@ -78,7 +78,7 @@
                             Ofertas de la semana
                         </ion-label>
                     </ion-item>
-                    <ion-item>
+                    <ion-item (click)="OpenMenu('stores')">
                         <mat-icon matPrefix class="material-icons">extension</mat-icon>
                         <ion-label class="offset-1">
                             Tiendas oficiales

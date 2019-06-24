@@ -17,14 +17,16 @@
         </ion-row>
         <!-- stores -->
         <div class="space-40"></div>
-        <ion-row>
-            <ion-col size="12" align="center">
-                <ion-card matRipple (click)="NavigateToStore(1);">
-                    <img style="margin-left: 25%" class="w-50" src="./assets/images/demo/Samsung-logo@2x.png" alt="logo">
+        <ion-row *ngIf="StoresData !== null && StoresData.length >= 1">
+            <ion-col *ngFor="let store of StoresData" size="12" align="center">
+                <ion-card matRipple (click)="NavigateToStore(store);">
+                    <img style="margin-left: 25%" class="w-50" [src]="SOLUCLIC_URL + 'image/' + store.image" [alt]="store.name">
                     <mat-divider class="text-center w-75 divider-mg"></mat-divider>
                     <ion-card-content>
-                        <p style="font-size: 12px !important">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        <p style="font-size: 16px !important; font-weight: bold;">
+                            <mat-hint>
+                                {{store.name}}
+                            </mat-hint>
                         </p>
                         <div class="space-15"></div>
                         <mat-radio-group class="rating-block">
@@ -34,67 +36,6 @@
                             <ion-icon name="star"></ion-icon>
                             <ion-icon name="star"></ion-icon>
                         </mat-radio-group>
-
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" align="center">
-                <ion-card matRipple (click)="NavigateToStore(1);">
-                    <img style="margin-left: 25%" class="w-50" src="./assets/images/demo/Samsung-logo@2x.png" alt="logo">
-                    <mat-divider class="text-center w-75 divider-mg"></mat-divider>
-                    <ion-card-content>
-                        <p style="font-size: 12px !important">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <div class="space-15"></div>
-                        <mat-radio-group class="rating-block">
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                        </mat-radio-group>
-
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" align="center">
-                <ion-card matRipple>
-                    <img style="margin-left: 25%" class="w-50" src="./assets/images/demo/Samsung-logo@2x.png" alt="logo">
-                    <mat-divider class="text-center w-75 divider-mg"></mat-divider>
-                    <ion-card-content>
-                        <p style="font-size: 12px !important">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <div class="space-15"></div>
-                        <mat-radio-group class="rating-block">
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                        </mat-radio-group>
-
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" align="center">
-                <ion-card matRipple>
-                    <img style="margin-left: 25%" class="w-50" src="./assets/images/demo/Samsung-logo@2x.png" alt="logo">
-                    <mat-divider class="text-center w-75 divider-mg"></mat-divider>
-                    <ion-card-content>
-                        <p style="font-size: 12px !important">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <div class="space-15"></div>
-                        <mat-radio-group class="rating-block">
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon>
-                        </mat-radio-group>
-
                     </ion-card-content>
                 </ion-card>
             </ion-col>

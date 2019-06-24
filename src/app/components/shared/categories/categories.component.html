@@ -13,53 +13,10 @@
                 <ion-card>
                     <ion-card-content>
                         <ion-list>
-                            <ion-item>
+                            <ion-item (click)="Navigate(list, list.product_id);" *ngFor="let list of ArrayCategories">
                                 <ion-label>
-                                    Accesorios para Vehículos
+                                    <span [innerHTML]="list.name"></span>
                                 </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
-                                <div class="space-15"></div>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    Accesorios para Vehículos
-                                </ion-label>
-                                <ion-note>0000</ion-note>
                                 <div class="space-15"></div>
                             </ion-item>
                         </ion-list>

@@ -9,26 +9,34 @@
         </ion-toolbar>
     </ion-header>
     <ion-grid>
-        <ion-row align="center">
-            <ion-col align-self="center" size="12">
+        <ion-row *ngIf="auth.SavedCartItems !== null && auth.SavedCartItems.length >= 1" align="center">
+            <ion-col *ngFor="let item of CartItems; let i = index" align-self="center" size="12">
                 <ion-card>
                     <ion-fab vertical="top" horizontal="end" slot="fixed">
-                        <ion-fab-button size="small" color="default">
-                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
-                        </ion-fab-button>
+                        <form #wishlist="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(wishlist);">
+                            <ion-fab-button (click)="TriggerCartClick(i, 'btn-wishlist');" class="fab-button-wishlist" color="default" size="small">
+                                <ion-icon class="font-20" name="heart-empty"></ion-icon>
+                            </ion-fab-button>
+                            <fieldset class="hide">
+                                <input [(ngModel)]="auth._id" type="hidden" name="customer_id">
+                                <input [(ngModel)]="item.product_id" type="hidden" name="product_id">
+                                <input ngModel="wishlist" type="hidden" name="operation">
+                                <button style="display: none" [id]="'btn-wishlist-' + i" type="submit"></button>
+                            </fieldset>
+                        </form>
                     </ion-fab>
-                    <ion-card-header>
-                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                    <ion-card-header [routerLink]="['/tabs/product/' + item.product_id]">
+                        <ion-img [alt]="item.name" [src]="SOLUCLIC_URL + 'image/' + item.image"></ion-img>
                     </ion-card-header>
                     <ion-card-content>
-                        <h1 class="color-default">
-                            TV Samsung
+                        <h1 [routerLink]="['/tabs/product/' + item.product_id]" class="color-default">
+                            {{item.name}}
                         </h1>
                         <div class="space-15"></div>
                         <ion-row align="center">
                             <ion-col>
                                 <ion-chip style="position: relative; top: 0.5em" color="danger">
-                                    <ion-label>Total: $52.56</ion-label>
+                                    <ion-label>Total: ${{item.price | number}}</ion-label>
                                 </ion-chip>
                             </ion-col>
                             <ion-col>
@@ -58,7 +66,6 @@
                                         <ion-select-option value="7">
                                             7
                                         </ion-select-option>
-
                                     </ion-select>
                                 </ion-item>
                             </ion-col>
@@ -66,75 +73,11 @@
                         <div class="space-10"></div>
                         <ion-chip color="secondary">
                             <ion-avatar>
-                                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="">
+                                <img [alt]="item.alianza" [src]="SOLUCLIC_URL + 'image/' + item.alianzaLogo">
                             </ion-avatar>
-                            <ion-label>Samsung</ion-label>
+                            <ion-label>{{item.alianza}}</ion-label>
                         </ion-chip>
-                        <ion-button expand="full" shape="round" color="danger">
-                            Eliminar del carrito
-                        </ion-button>
-                    </ion-card-content>
-                </ion-card>
-                <ion-card>
-                    <ion-fab vertical="top" horizontal="end" slot="fixed">
-                        <ion-fab-button size="small" color="default">
-                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
-                        </ion-fab-button>
-                    </ion-fab>
-                    <ion-card-header>
-                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
-                    </ion-card-header>
-                    <ion-card-content>
-                        <h1 class="color-default">
-                            TV Samsung
-                        </h1>
-                        <div class="space-15"></div>
-                        <ion-row align="center">
-                            <ion-col>
-                                <ion-chip style="position: relative; top: 0.5em" color="danger">
-                                    <ion-label>Total: $52.56</ion-label>
-                                </ion-chip>
-                            </ion-col>
-                            <ion-col>
-                                <ion-item>
-                                    <ion-label>
-                                        Cantidad
-                                    </ion-label>
-                                    <ion-select>
-                                        <ion-select-option value="1">
-                                            1
-                                        </ion-select-option>
-                                        <ion-select-option value="2">
-                                            2
-                                        </ion-select-option>
-                                        <ion-select-option value="3">
-                                            3
-                                        </ion-select-option>
-                                        <ion-select-option value="4">
-                                            4
-                                        </ion-select-option>
-                                        <ion-select-option value="5">
-                                            5
-                                        </ion-select-option>
-                                        <ion-select-option value="6">
-                                            6
-                                        </ion-select-option>
-                                        <ion-select-option value="7">
-                                            7
-                                        </ion-select-option>
-
-                                    </ion-select>
-                                </ion-item>
-                            </ion-col>
-                        </ion-row>
-                        <div class="space-10"></div>
-                        <ion-chip color="secondary">
-                            <ion-avatar>
-                                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="">
-                            </ion-avatar>
-                            <ion-label>Samsung</ion-label>
-                        </ion-chip>
-                        <ion-button expand="full" shape="round" color="danger">
+                        <ion-button (click)="DeleteCartItem(item.product_id, i);" expand="full" shape="round" color="danger">
                             Eliminar del carrito
                         </ion-button>
                     </ion-card-content>

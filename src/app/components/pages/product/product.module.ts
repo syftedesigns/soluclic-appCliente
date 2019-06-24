@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProductPage } from './product.page';
 import { AngularMaterialModule } from '../../../angular-material.module';
+import { DomSanatizerPipe } from '../../../services/pipes/dom-sanatizer.pipe';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AngularMaterialModule
   ],
-  declarations: [ProductPage]
+  declarations: [
+    ProductPage,
+    DomSanatizerPipe
+  ]
 })
 export class ProductPageModule {}

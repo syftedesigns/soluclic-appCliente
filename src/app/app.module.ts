@@ -9,7 +9,7 @@ import { ServicesModule } from './services/services.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { IonicStorageModule } from '@ionic/storage';
 // Angular material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
@@ -25,6 +25,7 @@ import { PublicComponent } from './components/pages/public/public.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,

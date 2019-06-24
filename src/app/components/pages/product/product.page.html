@@ -6,7 +6,7 @@
                 <ion-back-button class="back-button-color" defaultHref="/tabs/tab3"></ion-back-button>
             </ion-buttons>
             <ion-title>
-                Samsung
+                {{ProductData.meta_title}}
             </ion-title>
         </ion-toolbar>
     </ion-header>
@@ -23,50 +23,47 @@
                     <ion-card-header>
                         <ion-slides pager="true">
                             <ion-slide>
-                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                                <ion-img [src]="SOLUCLIC_URL + 'image/' + ProductData.image" [alt]="ProductData.meta_title"></ion-img>
                             </ion-slide>
-                            <ion-slide>
-                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
-                            </ion-slide>
-                            <ion-slide>
-                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
-                            </ion-slide>
-                            <ion-slide>
-                                <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                            <ion-slide *ngFor="let slide of ProductThumbnails">
+                                <ion-img [src]="SOLUCLIC_URL + 'image/' + slide.image" [alt]="slide.image"></ion-img>
                             </ion-slide>
                         </ion-slides>
                         <div class="space-15"></div>
                         <mat-divider></mat-divider>
                     </ion-card-header>
                     <ion-card-content>
-                        <h1 class="color-default">TV ultra HD</h1>
+                        <h1 class="color-default">{{ProductData.meta_title}}</h1>
                         <ion-row>
                             <ion-col>
                                 <mat-radio-group class="rating-block">
-                                    <ion-icon name="star-outline"></ion-icon>
-                                    <ion-icon name="star-outline"></ion-icon>
-                                    <ion-icon name="star-outline"></ion-icon>
-                                    <ion-icon name="star-outline"></ion-icon>
-                                    <ion-icon name="star-outline"></ion-icon>
+                                    <ion-icon [name]="ReturnStarOnProduct('star1')"></ion-icon>
+                                    <ion-icon [name]="ReturnStarOnProduct('star2')"></ion-icon>
+                                    <ion-icon [name]="ReturnStarOnProduct('star3')"></ion-icon>
+                                    <ion-icon [name]="ReturnStarOnProduct('star4')"></ion-icon>
+                                    <ion-icon [name]="ReturnStarOnProduct('star5')"></ion-icon>
                                 </mat-radio-group>
                             </ion-col>
                             <ion-col>
-                                <mat-hint> 4 opiniones </mat-hint>
+                                <mat-hint>
+                                    <ion-badge style="position: relative; top: 0.3em">Stock</ion-badge>
+                                    {{ProductData.stock}}
+                                </mat-hint>
                             </ion-col>
                         </ion-row>
-                        <mat-hint>445 vendidos</mat-hint>
+                        <mat-hint>{{ProductData.viewed | number}} vendidos</mat-hint>
                         <div class="space-30"></div>
                         <ion-row>
                             <ion-col>
-                                <h1 class="color-default">$48.98</h1>
+                                <h1 class="color-default">${{ProductData.price | number}}</h1>
                             </ion-col>
-                            <ion-col size="1">
+                            <ion-col *ngIf="ProductData.descuento" size="1">
                                 <h5 class="material-icons font-28">
                                     keyboard_tab
                                 </h5>
                             </ion-col>
-                            <ion-col>
-                                <h1 class="color-default">$52.52</h1>
+                            <ion-col *ngIf="ProductData.descuento">
+                                <h1 class="color-default">${{ProductData.descuento | number}}</h1>
                             </ion-col>
                         </ion-row>
                         <div class="space-15"></div>
@@ -74,9 +71,13 @@
                         <div class="space-15"></div>
                         <h3 class="color-default">Descripción</h3>
                         <div class="space-15"></div>
-                        <p style="font-size: 12px !important" class="color-default">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        </p>
+                        <div id="description">
+                            <ion-text class="description-text" text-wrap>
+                                <mat-hint>
+                                    <p [innerHTML]="productDescription | domSanatizer"></p>
+                                </mat-hint>
+                            </ion-text>
+                        </div>
                         <div class="space-15"></div>
                         <mat-divider></mat-divider>
                         <div class="space-15"></div>
@@ -87,9 +88,9 @@
                                         <p>
                                             <mat-form-field appearance="fill" class="w-75">
                                                 <mat-label>Cantidad</mat-label>
-                                                <mat-icon matPrefix>add</mat-icon>
-                                                <input type="number" matInput>
-                                                <mat-icon matSuffix>remove</mat-icon>
+                                                <mat-icon (click)="LimitStock('sum');" matPrefix>add</mat-icon>
+                                                <input keyup="return false;" [(ngModel)]="StockQty" name="quantity" type="number" matInput>
+                                                <mat-icon (click)="LimitStock('sub');" matSuffix>remove</mat-icon>
                                             </mat-form-field>
                                         </p>
                                     </div>
@@ -109,46 +110,28 @@
                         <div class="space-15"></div>
                         <mat-divider></mat-divider>
                         <div class="space-15"></div>
-                        <ion-chip color="secondary">
-                            <ion-icon name="medical"></ion-icon>
-                            <ion-label>
-                                Garantía
-                            </ion-label>
-                        </ion-chip>
-                        <ion-chip color="secondary">
-                            <ion-icon name="medical"></ion-icon>
-                            <ion-label>
-                                Poco uso
-                            </ion-label>
-                        </ion-chip>
+                        <!-- filters -->
+                        <div *ngIf="ArrayFilters !== null && ArrayFilters.length >= 1">
+                            <ion-chip *ngFor="let filter of ArrayFilters" color="secondary">
+                                <ion-icon name="medical"></ion-icon>
+                                <ion-label>
+                                    {{filter.Childs}}
+                                </ion-label>
+                            </ion-chip>
+                        </div>
+                        <!-- end filters -->
                         <div class="space-15"></div>
                         <mat-divider></mat-divider>
                         <div class="space-15"></div>
-                        <h3 class="color-default">
+                        <h3 *ngIf="ArrayProductsReviews !== null && ArrayProductsReviews.length >= 1" class="color-default">
                             Reviews
                         </h3>
                         <div class="space-15"></div>
-                        <ion-row>
-                            <ion-col size="12">
+                        <ion-row *ngIf="ArrayProductsReviews !== null && ArrayProductsReviews.length >= 1">
+                            <ion-col *ngFor="let review of ArrayProductsReviews" size="12">
                                 <mat-card style="border-top: 1px solid #cecece">
                                     <mat-card-content>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </mat-card-content>
-                                </mat-card>
-                                <div class="space-15"></div>
-                            </ion-col>
-                            <ion-col size="12">
-                                <mat-card style="border-top: 1px solid #cecece">
-                                    <mat-card-content>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    </mat-card-content>
-                                </mat-card>
-                                <div class="space-15"></div>
-                            </ion-col>
-                            <ion-col size="12">
-                                <mat-card style="border-top: 1px solid #cecece">
-                                    <mat-card-content>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        {{review.text}}
                                     </mat-card-content>
                                 </mat-card>
                                 <div class="space-15"></div>
@@ -157,12 +140,12 @@
                         <div class="space-15"></div>
                         <mat-divider></mat-divider>
                         <div class="space-15"></div>
-                        <h2 class="color-default">
+                        <h2 *ngIf="ArrayProductsRealted !== null && ArrayProductsRealted.length >= 1" class="color-default">
                             Productos relacionados
                         </h2>
                         <!-- related products -->
-                        <ion-slides pager="true">
-                            <ion-slide>
+                        <ion-slides *ngIf="ArrayProductsRealted !== null && ArrayProductsRealted.length >= 1" pager="true">
+                            <ion-slide *ngFor="let related of ArrayProductsRealted">
                                 <ion-card>
                                     <ion-fab vertical="top" horizontal="end" slot="fixed">
                                         <ion-fab-button size="small" color="default">
@@ -170,123 +153,27 @@
                                         </ion-fab-button>
                                     </ion-fab>
                                     <ion-card-header>
-                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
+                                        <ion-img [routerLink]="['/tabs/product/' + related.product_id]" [src]="SOLUCLIC_URL + 'image/' + related.image" [alt]="related.meta_title"></ion-img>
                                     </ion-card-header>
                                     <ion-card-content>
-                                        <h2 class="color-default">
-                                            Tv Ultra HD
+                                        <h2 [routerLink]="['/tabs/product/' + related.product_id]" class="color-default">
+                                            {{related.meta_title}}
                                         </h2>
                                         <div class="space-15"></div>
                                         <p style="font-size: 12px !important">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            {{related.meta_description}}
                                         </p>
                                         <div class="space-15"></div>
                                         <ion-row>
                                             <ion-col size="7">
                                                 <mat-hint style="position: relative; top: 0.5em">
-                                                    $64.54
+                                                    ${{related.price | number}}
                                                 </mat-hint>
                                             </ion-col>
-                                            <ion-col size="4">
+                                            <ion-col *ngIf="related.descuento" size="4">
                                                 <ion-chip color="danger">
                                                     <ion-label>
-                                                        -45%
-                                                    </ion-label>
-                                                </ion-chip>
-                                            </ion-col>
-                                        </ion-row>
-                                        <ion-fab vertical="top" horizontal="end" slot="fixed">
-                                            <ion-fab-button size="small" color="default">
-                                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
-                                            </ion-fab-button>
-                                        </ion-fab>
-                                        <div class="space-15"></div>
-                                        <ion-chip color="secondary">
-                                            <ion-icon name="medical"></ion-icon>
-                                            <ion-label>
-                                                Instalación
-                                            </ion-label>
-                                        </ion-chip>
-                                    </ion-card-content>
-                                </ion-card>
-                            </ion-slide>
-                            <ion-slide>
-                                <ion-card>
-                                    <ion-fab vertical="top" horizontal="end" slot="fixed">
-                                        <ion-fab-button size="small" color="default">
-                                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
-                                        </ion-fab-button>
-                                    </ion-fab>
-                                    <ion-card-header>
-                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
-                                    </ion-card-header>
-                                    <ion-card-content>
-                                        <h2 class="color-default">
-                                            Tv Ultra HD
-                                        </h2>
-                                        <div class="space-15"></div>
-                                        <p style="font-size: 12px !important">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        </p>
-                                        <div class="space-15"></div>
-                                        <ion-row>
-                                            <ion-col size="7">
-                                                <mat-hint style="position: relative; top: 0.5em">
-                                                    $64.54
-                                                </mat-hint>
-                                            </ion-col>
-                                            <ion-col size="4">
-                                                <ion-chip color="danger">
-                                                    <ion-label>
-                                                        -45%
-                                                    </ion-label>
-                                                </ion-chip>
-                                            </ion-col>
-                                        </ion-row>
-                                        <ion-fab vertical="top" horizontal="end" slot="fixed">
-                                            <ion-fab-button size="small" color="default">
-                                                <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
-                                            </ion-fab-button>
-                                        </ion-fab>
-                                        <div class="space-15"></div>
-                                        <ion-chip color="secondary">
-                                            <ion-icon name="medical"></ion-icon>
-                                            <ion-label>
-                                                Instalación
-                                            </ion-label>
-                                        </ion-chip>
-                                    </ion-card-content>
-                                </ion-card>
-                            </ion-slide>
-                            <ion-slide>
-                                <ion-card>
-                                    <ion-fab vertical="top" horizontal="end" slot="fixed">
-                                        <ion-fab-button size="small" color="default">
-                                            <ion-icon style="color: #4D56EA" name="heart-empty"></ion-icon>
-                                        </ion-fab-button>
-                                    </ion-fab>
-                                    <ion-card-header>
-                                        <ion-img src="./assets/images/demo/tv@2x.png"></ion-img>
-                                    </ion-card-header>
-                                    <ion-card-content>
-                                        <h2 class="color-default">
-                                            Tv Ultra HD
-                                        </h2>
-                                        <div class="space-15"></div>
-                                        <p style="font-size: 12px !important">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        </p>
-                                        <div class="space-15"></div>
-                                        <ion-row>
-                                            <ion-col size="7">
-                                                <mat-hint style="position: relative; top: 0.5em">
-                                                    $64.54
-                                                </mat-hint>
-                                            </ion-col>
-                                            <ion-col size="4">
-                                                <ion-chip color="danger">
-                                                    <ion-label>
-                                                        -45%
+                                                        ${{related.descuento | number}}
                                                     </ion-label>
                                                 </ion-chip>
                                             </ion-col>

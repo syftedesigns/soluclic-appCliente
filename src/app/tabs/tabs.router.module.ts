@@ -69,13 +69,14 @@ const routes: Routes = [
       },
       // Internal pages
       {
-        path: 'explorer',
+        path: 'explorer/:category/:product_id',
         children: [
           {
             path: '',
             loadChildren: '../components/pages/explorer/explorer.module#ExplorerPageModule'
           }
-        ]
+        ],
+        data: {showCategoriesMenu: false, HideMenu: false}
       },
       {
         path: 'history',
@@ -106,7 +107,7 @@ const routes: Routes = [
         }],
       },
       {
-        path: 'store/:manufacturer_id',
+        path: 'store/:manufacturer_id/:store_name',
         children: [{
           path: '',
           loadChildren: '../components/pages/store/store.module#StorePageModule'
@@ -118,6 +119,13 @@ const routes: Routes = [
           path: '',
           loadChildren: '../components/pages/product/product.module#ProductPageModule'
         }]
+      },
+      {
+        path: 'finder/:category',
+        children: [{
+          path: '',
+          loadChildren: '../components/pages/find/find.module#FindPageModule'
+        }],
       },
       {
         path: 'checkout/startup',

@@ -346,3 +346,11 @@
 .mapboxgl-canvas {
     left: 0;
 }
+
+.toast-default {
+    --background: #343a40 !important;
+    --color: white !important;
+    --border-radius: 0px !important;
+    --button-color: white !important;
+    font-size: 12px !important
+}

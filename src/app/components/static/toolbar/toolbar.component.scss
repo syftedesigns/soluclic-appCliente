@@ -64,3 +64,10 @@
 .menuToggle {
     --color: white !important
 }
+
+.explorer-bg>* {
+    background: rgba(235, 233, 233, 0.6) !important;
+    --background: rgba(235, 233, 233, 0.6)!important;
+    font-weight: bold;
+    font-size: 14px
+}

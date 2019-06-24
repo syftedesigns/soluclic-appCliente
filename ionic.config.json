@@ -1,5 +1,7 @@
 {
   "name": "appStore",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -5,7 +5,8 @@
 .rating-block {
     /*color: #FCDE0F;*/
     font-size: 16px !important;
-    padding: 20px !important
+    padding: 20px !important;
+    color: #FCDE0F !important;
 }
 
 .card-absolute {
@@ -67,6 +68,12 @@
 
 .product-card-bg {
     --background: linear-gradient(100deg, rgba(223, 221, 221, 1) 10%, rgba(223, 221, 221, 1) 100%, rgb(102, 30, 30) 100%) !important;
+}
+
+.description-text>* {
+    font-size: 12px !important;
+    padding: 20px !important;
+    text-align: left !important
 }
 
 @media only screen and (max-width: 320px) {

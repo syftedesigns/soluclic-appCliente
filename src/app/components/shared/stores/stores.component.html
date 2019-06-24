@@ -8,7 +8,9 @@
         <ion-grid>
             <ion-row align="center">
                 <ion-col align-self="center" size="12">
-                    <ion-searchbar class="explorer"></ion-searchbar>
+                    <form>
+                        <ion-searchbar (ionChange)="FindStores($event.detail.value);" (ionClear)="ClearArray();" autocorrect="on" autocomplete="on" class="explorer"></ion-searchbar>
+                    </form>
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -24,52 +26,10 @@
                 <ion-card>
                     <ion-card-content>
                         <ion-list>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
+                            <ion-item (click)="modal.dismiss();" *ngFor="let item of ArrayManufacturers" [routerLink]="['/tabs/store/' + item.manufacturer_id + '/' + item.name]" [queryParams]="{brand: item.image}">
+                                <img class="w-25" [src]="SOLUCLIC_IMAGE + 'image/' + item.image" [alt]="item.name">
                                 <ion-label>
-                                    Lorem Ipsum
-                                </ion-label>
-                            </ion-item>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
-                                <ion-label>
-                                    Lorem Ipsum
-                                </ion-label>
-                            </ion-item>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
-                                <ion-label>
-                                    Lorem Ipsum
-                                </ion-label>
-                            </ion-item>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
-                                <ion-label>
-                                    Lorem Ipsum
-                                </ion-label>
-                            </ion-item>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
-                                <ion-label>
-                                    Lorem Ipsum
-                                </ion-label>
-                            </ion-item>
-                            <ion-item [routerLink]="['/tabs/store/1']">
-                                <ion-avatar>
-                                    <img src="./assets/images/demo/1.jpg" alt="">
-                                </ion-avatar>
-                                <ion-label>
-                                    Lorem Ipsum
+                                    {{item.name}}
                                 </ion-label>
                             </ion-item>
                         </ion-list>

@@ -3,16 +3,20 @@ import { CommonModule } from '@angular/common';
 import { MenuService } from './menu/menu.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ProductService } from './db/product/product.service';
+import { AngularMaterialModule } from '../angular-material.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    AngularMaterialModule
   ],
   providers: [
-    MenuService
+    MenuService,
+    ProductService
   ]
 })
 export class ServicesModule { }
