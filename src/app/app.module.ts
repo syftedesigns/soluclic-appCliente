@@ -19,7 +19,7 @@ import { PublicComponent } from './components/pages/public/public.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PublicComponent
+    PublicComponent,
   ],
   entryComponents: [],
   imports: [

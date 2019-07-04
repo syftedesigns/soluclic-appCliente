@@ -172,7 +172,7 @@
                             <ion-col align="center">
                                 <ion-chip>
                                     <ion-avatar>
-                                        <img [alt]="prod.name" [src]="URL_IMG + 'image/' + prod.alianza">
+                                        <img [alt]="prod.name" [src]="URL_IMG + 'image/' + prod.alianza | noImage:'./assets/images/picture.png'">
                                     </ion-avatar>
                                     <ion-label>
                                         {{prod.name}}

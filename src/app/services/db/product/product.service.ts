@@ -5,12 +5,15 @@ import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { MatSnackBar } from '@angular/material';
 import { ObjectSavedProductClass } from '../../../classes/store/productSaved.class';
+import { ObjectProductClass } from '../../../classes/store/product.class';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
+  Favorites: ObjectProductClass[] = []; // Guardamos los productos en favoritos
+  CartItems: ObjectProductClass[] = []; // Guardamos los productos del carrito en favoritos
+  QtyItems: number = 0; // Items agregados al carrito
   // tslint:disable-next-line:variable-name
   constructor(private _http: HttpClient, private snackBar: MatSnackBar) { }
   // tslint:disable-next-line:variable-name

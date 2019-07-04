@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../../services/menu/menu.service';
 import { ProductService } from '../../../services/db/product/product.service';
 import { ObjectProductClass } from '../../../classes/store/product.class';
+import { DirService } from '../../../services/auth/dir.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,10 +13,19 @@ import { ObjectProductClass } from '../../../classes/store/product.class';
 export class ToolbarComponent implements OnInit {
   public Explorer: string = '';
   public ProductFindIndex: ObjectProductClass[] = [];
-  constructor(public menu: MenuService, private productDB: ProductService) { }
+  constructor(public menu: MenuService, public productDB: ProductService,
+              public dir: DirService, private auth: AuthService) { }
 
   ngOnInit() {
-
+    // Verificamos los productos en el carrito
+    this.GetCartsQty().then(
+      (qty) => {
+        if (qty !== null) {
+          // Tiene productos, por lo que lo seteamos el contador en el servicio
+          this.productDB.QtyItems = qty;
+        }
+      }
+    );
   }
 
   async ExplorerProducts(keyword: any) {
@@ -53,5 +64,17 @@ export class ToolbarComponent implements OnInit {
         this.menu.isSearching = false;
       }
     }
+  }
+  GetCartsQty(): Promise<number> {
+    return new Promise((resolve, reject) => {
+      this.dir.GetAnyThingByPrefix('products.php', 'countCarts', this.auth._id.toString(), 'customer_id')
+        .subscribe((data) => {
+          if (data.status) {
+            resolve(data.total);
+          } else {
+            resolve(null);
+          }
+        });
+    });
   }
 }

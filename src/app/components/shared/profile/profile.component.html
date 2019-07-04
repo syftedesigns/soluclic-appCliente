@@ -6,7 +6,7 @@
             </ion-button>
         </ion-buttons>
         <ion-title align="center" class="text-center">
-            Datos de Perfil
+            Dirección
         </ion-title>
     </ion-toolbar>
 </ion-header>
@@ -15,11 +15,11 @@
         <ion-col size="12" align="center">
             <ion-card>
                 <ion-card-content>
-                    <form>
+                    <form #dirForm="ngForm" ngNativeValidate (ngSubmit)="FormValue(dirForm);">
                         <div class="form-group">
                             <mat-form-field appearance="fill" class="w-100">
                                 <mat-label>Dirección del domicilio</mat-label>
-                                <input matInput placeholder="Calle, Casa, Habitación">
+                                <input type="text" [(ngModel)]="DirDefault.address_1" required name="address_1" matInput placeholder="Calle, Casa, Habitación">
                                 <mat-icon matSuffix>home</mat-icon>
                                 <mat-hint>
                                     Coloca tu dirección para que nuestro instalador/Delivery pueda localizarte.
@@ -28,20 +28,59 @@
                         </div>
                         <div class="form-group">
                             <mat-form-field appearance="fill" class="w-100">
-                                <mat-label>Teléfono</mat-label>
-                                <input matInput placeholder="+54 000 000 000">
-                                <mat-icon matSuffix>stay_current_portrait</mat-icon>
+                                <mat-label>Nombre y apellido</mat-label>
+                                <input type="text" [(ngModel)]="DirDefault.firstname" required name="firstname" matInput placeholder="John Doe">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Empresa&nbsp;<small class="text-muted">(Opcional)</small></mat-label>
+                                <input type="text" [(ngModel)]="DirDefault.company" required name="company" matInput>
+                                <mat-icon matSuffix>group_add</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Ciudad</mat-label>
+                                <input type="text" [(ngModel)]="DirDefault.city" required name="city" matInput>
+                                <mat-icon matSuffix>location_city</mat-icon>
                             </mat-form-field>
                         </div>
                         <div class="form-group">
                             <mat-form-field appearance="fill" class="w-100">
                                 <mat-label>Código postal</mat-label>
-                                <input matInput>
-                                <mat-icon matSuffix>business</mat-icon>
+                                <input type="text" [(ngModel)]="DirDefault.postcode" required name="postcode" matInput>
+                                <mat-icon matSuffix>adjust</mat-icon>
                             </mat-form-field>
                         </div>
                         <div class="form-group">
-                            <ion-button expand="block" shape="round">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>País</mat-label>
+                                <mat-select (selectionChange)="LoadRegion($event);" [(ngModel)]="DirDefault.country_id" required name="country_id">
+                                    <mat-option *ngFor="let country of Countries" [value]="country.country_id">
+                                        {{country.name}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>public</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Estado/Región/Provincia</mat-label>
+                                <mat-select required name="zone_id" ngModel>
+                                    <mat-selection-list *ngIf="Zones.length >= 1">
+                                        <mat-option *ngFor="let region of Zones" [value]="region.zone_id">
+                                            {{region.name}}
+                                        </mat-option>
+                                    </mat-selection-list>
+                                    <mat-option *ngIf="!Zones.length" disabled>Elige un país</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>place</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <ion-button type="submit" color="primary" expand="block">
                                 Enviar
                             </ion-button>
                         </div>

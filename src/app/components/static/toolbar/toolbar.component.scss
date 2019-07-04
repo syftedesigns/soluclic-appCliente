@@ -71,3 +71,15 @@
     font-weight: bold;
     font-size: 14px
 }
+
+.btn-fab-category {
+    --background: transparent !important;
+    --border-color: #FFFFFF !important;
+    --border-width: 3px !important;
+    border: 3px solid white !important;
+    border-radius: 50% !important;
+}
+
+.separation-button {
+    margin-left: 0%
+}

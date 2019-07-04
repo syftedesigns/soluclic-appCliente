@@ -21,6 +21,11 @@ import { PopoverComponent } from './geomap/menu/popover/popover.component';
 import { EmergencyComponent } from './geomap/menu/emergency/emergency.component';
 import { TicketComponent } from './geomap/menu/emergency/ticket/ticket.component';
 import { DeliveryComponent } from './geomap/profile/delivery/delivery.component';
+import { AccountComponent } from './config/account/account.component';
+import { HelpComponent } from './config/help/help.component';
+import { NotifyComponent } from './config/notify/notify.component';
+import { OffersComponent } from './explorer/offers/offers.component';
+import { NoImagePipe } from '../../services/pipes/no-image.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { DeliveryComponent } from './geomap/profile/delivery/delivery.component'
     PopoverComponent,
     EmergencyComponent,
     TicketComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    AccountComponent,
+    HelpComponent,
+    NotifyComponent,
+    OffersComponent,
+    NoImagePipe
   ],
   exports: [
     ProfileComponent,
@@ -59,7 +69,12 @@ import { DeliveryComponent } from './geomap/profile/delivery/delivery.component'
     PopoverComponent,
     EmergencyComponent,
     TicketComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    AccountComponent,
+    HelpComponent,
+    NotifyComponent,
+    OffersComponent,
+    NoImagePipe
   ],
   entryComponents: [
     ProfileComponent,
@@ -78,7 +93,11 @@ import { DeliveryComponent } from './geomap/profile/delivery/delivery.component'
     PopoverComponent,
     EmergencyComponent,
     TicketComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    AccountComponent,
+    HelpComponent,
+    NotifyComponent,
+    OffersComponent
   ],
   imports: [
     CommonModule,

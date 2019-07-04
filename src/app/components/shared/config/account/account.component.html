@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar class="toolbar-custom">
+        <ion-menu-button color="light"></ion-menu-button>
+        <ion-title>
+            <mat-hint class="text-white" style="font-size: 14px !important">
+                Cuenta
+            </mat-hint>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="space-20"></div>
+    <ion-grid>
+        <ion-row align="left">
+            <ion-col size="12" align-self="left">
+                <ion-slides [options]="SwiperOpts">
+                    <ion-slide>
+                        <ion-list lines="none">
+                            <ion-item detail>
+                                <ion-fab-button slot="start" size="small" color="medium">
+                                    <ion-icon name="contact"></ion-icon>
+                                </ion-fab-button>
+                                <ion-label>Mis datos</ion-label>
+                            </ion-item>
+                            <div class="space-15"></div>
+                            <ion-item detail>
+                                <ion-fab-button slot="start" size="small" color="medium">
+                                    <ion-icon name="lock"></ion-icon>
+                                </ion-fab-button>
+                                <ion-label>Seguridad</ion-label>
+                            </ion-item>
+                            <div class="space-15"></div>
+                            <ion-item detail>
+                                <ion-fab-button slot="start" size="small" color="medium">
+                                    <ion-icon name="help"></ion-icon>
+                                </ion-fab-button>
+                                <ion-label>Ayuda</ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-slide>
+                    <ion-slide>
+                        hola mundo
+                    </ion-slide>
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

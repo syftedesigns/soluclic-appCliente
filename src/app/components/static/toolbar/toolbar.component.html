@@ -13,7 +13,7 @@
             <ion-buttons>
                 <ion-button [routerLink]="['/tabs/cart']" class="icon-color">
                     <ion-icon class="cart-ico" style="margin-left: 1.5em" slot="icon-only" name="cart"></ion-icon>
-                    <ion-badge class="notify-num" color="danger">1</ion-badge>
+                    <ion-badge *ngIf="productDB.QtyItems !== 0" class="notify-num" color="danger">{{productDB.QtyItems}}</ion-badge>
                 </ion-button>
             </ion-buttons>
         </ion-col>
@@ -42,32 +42,28 @@
         <ion-col align-self="center" size="12">
             <ion-slides style="margin-top: -5%">
                 <ion-slide class="toolbar-slider">
-                    <ion-avatar>
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                </ion-slide>
-                <ion-slide class="toolbar-slider">
-                    <ion-avatar class="">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
-                    <ion-avatar class="offset-1">
-                        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-                    </ion-avatar>
+                    <ion-row style="margin-left: -1em">
+                        <ion-col>
+                            <ion-fab-button class="btn-fab-category" size="small">
+                                <mat-icon class="material-icons">local_mall</mat-icon>
+                            </ion-fab-button>
+                        </ion-col>
+                        <ion-col class="separation-button">
+                            <ion-fab-button class="btn-fab-category" size="small">
+                                <mat-icon class="material-icons">shopping_basket</mat-icon>
+                            </ion-fab-button>
+                        </ion-col>
+                        <ion-col class="separation-button">
+                            <ion-fab-button class="btn-fab-category" size="small">
+                                <mat-icon class="material-icons">stay_current_portrait</mat-icon>
+                            </ion-fab-button>
+                        </ion-col>
+                        <ion-col class="separation-button">
+                            <ion-fab-button class="btn-fab-category" size="small">
+                                <mat-icon class="material-icons">business</mat-icon>
+                            </ion-fab-button>
+                        </ion-col>
+                    </ion-row>
                 </ion-slide>
             </ion-slides>
         </ion-col>

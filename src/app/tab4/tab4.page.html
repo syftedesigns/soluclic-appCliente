@@ -17,7 +17,7 @@
         </ion-row>
         <!-- products -->
         <ion-row align-center>
-            <ion-col *ngFor="let prod of Favorites; let i = index" size="6">
+            <ion-col *ngFor="let prod of _product.Favorites; let i = index" size="6">
                 <ion-card *ngIf="prod.status ==='1'">
                     <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
                         <form #wishlist="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(wishlist);">
@@ -77,7 +77,7 @@
                             <ion-col align="center">
                                 <ion-chip>
                                     <ion-avatar>
-                                        <img [alt]="prod.alianza" [src]="URL_IMG + 'image/' + prod.alianzaLogo">
+                                        <img [alt]="prod.alianza" [src]="URL_IMG + 'image/' + prod.alianzaLogo | noImage">
                                     </ion-avatar>
                                     <ion-label>
                                         {{prod.alianza}}

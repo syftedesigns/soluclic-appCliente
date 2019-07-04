@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ProductService } from './db/product/product.service';
 import { AngularMaterialModule } from '../angular-material.module';
+import { DirService } from './auth/dir.service';
 
 @NgModule({
   declarations: [],
@@ -16,7 +17,8 @@ import { AngularMaterialModule } from '../angular-material.module';
   ],
   providers: [
     MenuService,
-    ProductService
+    ProductService,
+    DirService
   ]
 })
 export class ServicesModule { }

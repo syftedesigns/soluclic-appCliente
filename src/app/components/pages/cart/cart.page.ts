@@ -123,6 +123,7 @@ export class CartPage implements OnInit {
               if (await this.RemoveItemFromCart(product_id)) {
                 this.menu.ToastErrors('Artículo eliminado del carrito');
                 this.auth.SavedCartItems.splice(index, 1);
+                this._product.QtyItems--;
                 this.CartItems = this.auth.SavedCartItems;
               }
             }

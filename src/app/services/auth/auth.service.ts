@@ -149,6 +149,7 @@ export class AuthService {
             this.customerData = null;
             this.session = null;
             this._id = 0;
+            this.menu.snackBar.open('Tu cuenta ha sido cerrada', null, {duration: 4000});
             this.router.navigate(['/auth/login']);
           }
         }, (err) => {

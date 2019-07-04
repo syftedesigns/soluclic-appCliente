@@ -52,7 +52,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTreeModule
+    MatTreeModule,
   ],
   exports: [
     MatButtonModule,
@@ -81,7 +81,8 @@ import {MatTreeModule} from '@angular/material/tree';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTreeModule
+    MatTreeModule,
+
   ],
   declarations: []
 })

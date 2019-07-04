@@ -17,14 +17,16 @@ export class Tab4Page implements OnInit {
   Favorites: ObjectProductClass[] = [];
   URL_IMG: string = SOLUCLIC_IMAGE_URL;
   // tslint:disable-next-line:variable-name
-  constructor(private _product: ProductService, public auth: AuthService,
+  constructor(public _product: ProductService, public auth: AuthService,
               // tslint:disable-next-line:variable-name
               private _menu: MenuService) { }
 
   async ngOnInit() {
     const WishList = await this.GetProductsWishList();
     if (WishList !== null) {
-      this.Favorites = WishList;
+      // Colocamos los productos en un servicio ya que con los tabs, no esta refrescando de forma automatica
+      this._product.Favorites = WishList;
+      this.Favorites = this._product.Favorites;
       console.log(this.Favorites);
     } else {
       this.Favorites = null;
@@ -56,19 +58,25 @@ export class Tab4Page implements OnInit {
     switch (prefix.operation) {
       case 'wishlist':
         // Agregamos a favoritos
-        this._menu.OpenLoader('Guardando en favoritos...');
+        // this._menu.OpenLoader('Guardando en favoritos...');
         const WishList = new ObjectSavedProductClass(prefix.customer_id, null, prefix.product_id,
           null, null, null, null, null, null);
         this._product.SaveProduct('addWishItem', WishList)
-          .subscribe((favorite) => {
+          .subscribe(async (favorite) => {
             if (favorite.status) {
-              setTimeout(() => {
-                this._menu.closeLoader();
-                this._menu.ToastErrors('Artículo guardado como favorito');
-              }, 800);
+              // Si guardo en la lista de favoritos, hacemos un push en el servicio
+              const favoriteProductInfo = await this.GetProductInfo(favorite.object.product_id);
+              if (favoriteProductInfo !== null) {
+               // Tenemos los datos del producto entonces hacermos el push
+               this._product.Favorites.unshift(favoriteProductInfo);
+               setTimeout(() => {
+                 // this._menu.closeLoader();
+                 this._menu.ToastErrors('Artículo guardado como favorito');
+               }, 800);
+              }
             } else {
               setTimeout(() => {
-                this._menu.closeLoader();
+                // this._menu.closeLoader();
                 this._menu.ToastErrors('Este artículo ya esta en tu lista');
               }, 800);
             }
@@ -76,19 +84,26 @@ export class Tab4Page implements OnInit {
         break;
         // carrito
         case 'cart':
-        this._menu.OpenLoader('Agrengado artículo al carrito...');
+        // this._menu.OpenLoader('Agrengado artículo al carrito...');
         const CartItem = new ObjectSavedProductClass(prefix.customer_id, prefix.session, prefix.product_id,
           prefix.recurring_id, prefix.option, prefix.quantity, null, prefix.api_id);
         this._product.SaveProduct('addItem', CartItem)
-            .subscribe((cart) => {
+            .subscribe(async (cart) => {
               if (cart.status) {
-                setTimeout(() => {
-                  this._menu.closeLoader();
-                  this._menu.ToastErrors('Artículo Agregado al carrito');
-                }, 800);
+                // Si guardo en la lista de favoritos, hacemos un push en el servicio
+                const cartProductInfo = await this.GetProductInfo(cart.object.product_id);
+                if (cartProductInfo !== null) {
+                  this.auth.SavedCartItems.unshift(cartProductInfo);
+                  this._product.QtyItems++;
+               // Tenemos los datos del producto entonces hacermos el push
+                  setTimeout(() => {
+                      // this._menu.closeLoader();
+                      this._menu.ToastErrors('Artículo guardado al carrito');
+                    }, 800);
+              }
               } else {
                 setTimeout(() => {
-                  this._menu.closeLoader();
+                  // this._menu.closeLoader();
                   this._menu.ToastErrors('No se pudo agregar al carrito');
                 }, 800);
               }
@@ -100,5 +115,18 @@ export class Tab4Page implements OnInit {
     TriggerCartClick(id: string, prefix: string): void {
       $(`button[id=${prefix}-${id}]`).trigger('click');
       return;
+    }
+    GetProductInfo(productID: number): Promise<ObjectProductClass> {
+      return new Promise((resolve, reject) => {
+        this._product.GetAllProductData('selectNewProductAPI-ID', productID)
+          .subscribe((data) => {
+            if (data.status) {
+              resolve(data.data[0]);
+            } else {
+              resolve(null);
+              return;
+            }
+          });
+      });
     }
 }

@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-toolbar class="toolbar-custom">
+        <ion-buttons>
+            <ion-button (click)="modal.dismiss();" icon-only color="light">
+                <ion-icon name="arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            <mat-hint class="text-white" style="font-size: 14px !important">
+                Notificaciones
+            </mat-hint>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="space-30"></div>
+    <ion-grid>
+        <ion-row align="center">
+            <ion-col size="12" align-self="center">
+                <ion-card style="background: white !important" class="bg-white">
+                    <ion-header>
+                        <ion-card-title>
+                            <mat-hint style="font-size: 16px">
+                                Preguntas frecuentes
+                            </mat-hint>
+                        </ion-card-title>
+                        <ion-card-content>
+                            <ion-list lines="none">
+                                <ion-item>
+                                    <ion-label text-wrap>
+                                        <mat-hint>
+                                            ¿Incluye descuentos y promociones en la tiendas?
+                                        </mat-hint>
+                                    </ion-label>
+                                </ion-item>
+                                <div class="space-10"></div>
+                                <mat-divider></mat-divider>
+                                <div class="space-10"></div>
+                                <ion-item>
+                                    <ion-label text-wrap>
+                                        <mat-hint>
+                                            ¿Debo darle propina al Soluclic?
+                                        </mat-hint>
+                                    </ion-label>
+                                </ion-item>
+                                <div class="space-10"></div>
+                                <mat-divider></mat-divider>
+                                <div class="space-10"></div>
+                                <ion-item>
+                                    <ion-label text-wrap>
+                                        <mat-hint>
+                                            ¿Qué tiendas y mercados puedo encontrar en la aplicación?
+                                        </mat-hint>
+                                    </ion-label>
+                                </ion-item>
+                                <div class="space-10"></div>
+                                <mat-divider></mat-divider>
+                                <div class="space-10"></div>
+                                <ion-item>
+                                    <ion-label text-wrap>
+                                        <mat-hint>
+                                            ¿Cómo actualizo mi método de pago?
+                                        </mat-hint>
+                                    </ion-label>
+                                </ion-item>
+                                <div class="space-10"></div>
+                                <mat-divider></mat-divider>
+                                <div class="space-10"></div>
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-header>
+                </ion-card>
+                <div class="space-40"></div>
+                <ion-card style="background: white !important">
+                    <ion-header>
+                        <ion-card-title>
+                            <mat-hint style="font-size: 16px">
+                                Preguntas frecuentes
+                            </mat-hint>
+                        </ion-card-title>
+                        <ion-card-content>
+                            <ion-list lines="none">
+                                <ion-item detail>
+                                    <ion-label text-wrap>
+                                        <mat-hint>
+                                            Contactar a soporte técnico
+                                        </mat-hint>
+                                    </ion-label>
+                                </ion-item>
+                            </ion-list>
+                        </ion-card-content>
+                    </ion-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

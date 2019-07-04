@@ -1,65 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../../../services/menu/menu.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../../../services/db/product/product.service';
+import { ModalController } from '@ionic/angular';
+import { ProductService } from '../../../../services/db/product/product.service';
 import { ObjectProductClass } from 'src/app/classes/store/product.class';
-import { SOLUCLIC_IMAGE_URL } from '../../../API/api_url.class';
 import { NgForm } from '@angular/forms';
+import { MenuService } from '../../../../services/menu/menu.service';
 import { ObjectSavedProductClass } from 'src/app/classes/store/productSaved.class';
-import { AuthService } from '../../../services/auth/auth.service';
+import { AuthService } from '../../../../services/auth/auth.service';
+import { SOLUCLIC_IMAGE_URL } from 'src/app/API/api_url.class';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-explorer',
-  templateUrl: './explorer.page.html',
-  styleUrls: ['./explorer.page.scss'],
+  selector: 'app-offers',
+  templateUrl: './offers.component.html',
+  styleUrls: ['./offers.component.scss'],
 })
-export class ExplorerPage implements OnInit {
-  public CategoryId: number = 0;
-  public productId: number = 0;
-  public ProdList: ObjectProductClass[] = [];
-  public CatName: string = '';
+export class OffersComponent implements OnInit {
+  SpecialItems: ObjectProductClass[] = [];
   public URL_IMG: string = SOLUCLIC_IMAGE_URL;
+
   // tslint:disable-next-line:variable-name
-  constructor(private _menu: MenuService, private get: ActivatedRoute,
-              // tslint:disable-next-line:variable-name
-              private _product: ProductService, private router: Router,
-              public auth: AuthService) {
-    this.get.params.subscribe(
-      (categoryData) => {
-        this.CategoryId = categoryData.category;
-        this.productId = categoryData.product_id;
-      }
-    );
-    this.get.queryParams.subscribe(
-      (attributes) => {
-        this.CatName = attributes.catname;
-      }
-    );
-  }
+  constructor(public modal: ModalController, private _product: ProductService, private _menu: MenuService,
+              public auth: AuthService) { }
 
   async ngOnInit() {
-    setTimeout(() => {
-      this._menu.isSearching = false;
-    }, 300);
-    const productList = await this.GetProductsByPARAMS();
-    if (productList !== null) {
-      this.ProdList = productList;
-      console.log(this.ProdList);
-    } else {
-      this._menu.ToastErrors('No hay información acerca de lo que necesitas');
-      this.router.navigate(['/tabs/tab3']);
+    const items = await this.OffersItems();
+    if (items !== null) {
+      this.SpecialItems = items;
+      console.log(this.SpecialItems);
     }
   }
-  GetProductsByPARAMS(): Promise<ObjectProductClass[]> {
+
+  OffersItems(): Promise<ObjectProductClass[]> {
     return new Promise((resolve, reject) => {
-      this._product.ProductsByExplorer('selectProductsByCategory', this.productId, this.CategoryId)
-        .subscribe((prodList) => {
-          if (prodList.status) {
-            resolve(prodList.data);
+      this._product.GetAllProductData('selectProductsNewAPIDiscount')
+        .subscribe((data) => {
+          if (data.status) {
+            // Significa que hay ofertas en la semana
+            resolve(data.data);
           } else {
             resolve(null);
-            return;
           }
         });
     });

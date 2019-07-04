@@ -18,9 +18,17 @@
             <ion-col *ngFor="let prod of ArrayProducts; let i = index" size="6">
                 <ion-card *ngIf="prod.status ==='1'">
                     <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
-                        <ion-fab-button class="fab-button-wishlist" size="small">
-                            <ion-icon class="font-20" name="heart-empty"></ion-icon>
-                        </ion-fab-button>
+                        <form #wishlist="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(wishlist);">
+                            <ion-fab-button (click)="TriggerCartClick(i, 'btn-wishlist');" class="fab-button-wishlist" size="small">
+                                <ion-icon class="font-20" name="heart-empty"></ion-icon>
+                            </ion-fab-button>
+                            <fieldset class="hide">
+                                <input [(ngModel)]="auth._id" type="hidden" name="customer_id">
+                                <input [(ngModel)]="prod.product_id" type="hidden" name="product_id">
+                                <input ngModel="wishlist" type="hidden" name="operation">
+                                <button style="display: none" [id]="'btn-wishlist-' + i" type="submit"></button>
+                            </fieldset>
+                        </form>
                     </ion-fab>
                     <ion-card-header [routerLink]="['/tabs/product/' + prod.product_id]" class="product-card-bg">
                         <div class="space-10"></div>
@@ -31,9 +39,22 @@
                             {{prod.meta_title}}
                         </ion-card-title>
                         <ion-fab vertical="top" horizontal="end" slot="fixed">
-                            <ion-fab-button class="fab-button-cart" size="small">
-                                <ion-icon class="font-20" name="cart"></ion-icon>
-                            </ion-fab-button>
+                            <form #cart="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(cart);">
+                                <ion-fab-button (click)="TriggerCartClick(i, 'btn-cart');" class="fab-button-cart" size="small">
+                                    <ion-icon class="font-20" name="cart"></ion-icon>
+                                </ion-fab-button>
+                                <fieldset class="hide">
+                                    <input ngModel="0" type="hidden" name="api_id">
+                                    <input [(ngModel)]="auth._id" type="hidden" name="customer_id">
+                                    <input [(ngModel)]="auth.session" type="hidden" name="session">
+                                    <input [(ngModel)]="prod.product_id" type="hidden" name="product_id">
+                                    <input ngModel="0" type="hidden" name="recurring_id">
+                                    <input ngModel="[]" type="hidden" name="option">
+                                    <input ngModel="1" type="hidden" name="quantity">
+                                    <input ngModel="cart" type="hidden" name="operation">
+                                    <button style="display: none" [id]="'btn-cart-' + i" type="submit"></button>
+                                </fieldset>
+                            </form>
                         </ion-fab>
                         <p style="font-size: 8px;" padding class="text-left w-100">
                             {{prod.meta_description}}

@@ -65,12 +65,18 @@ export class Tab3Page implements OnInit {
         const WishList = new ObjectSavedProductClass(prefix.customer_id, null, prefix.product_id,
           null, null, null, null, null, null);
         this._product.SaveProduct('addWishItem', WishList)
-          .subscribe((favorite) => {
+          .subscribe(async (favorite) => {
             if (favorite.status) {
-              setTimeout(() => {
-                this._menu.closeLoader();
-                this._menu.ToastErrors('Artículo guardado como favorito');
-              }, 800);
+              // Si guardo en la lista de favoritos, hacemos un push en el servicio
+              const favoriteProductInfo = await this.GetProductInfo(favorite.object.product_id);
+              if (favoriteProductInfo !== null) {
+               // Tenemos los datos del producto entonces hacermos el push
+               this._product.Favorites.unshift(favoriteProductInfo);
+               setTimeout(() => {
+                 this._menu.closeLoader();
+                 this._menu.ToastErrors('Artículo guardado como favorito');
+               }, 800);
+              }
             } else {
               setTimeout(() => {
                 this._menu.closeLoader();
@@ -85,12 +91,20 @@ export class Tab3Page implements OnInit {
         const CartItem = new ObjectSavedProductClass(prefix.customer_id, prefix.session, prefix.product_id,
           prefix.recurring_id, prefix.option, prefix.quantity, null, prefix.api_id);
         this._product.SaveProduct('addItem', CartItem)
-            .subscribe((cart) => {
+            .subscribe(async (cart) => {
               if (cart.status) {
-                setTimeout(() => {
-                  this._menu.closeLoader();
-                  this._menu.ToastErrors('Artículo Agregado al carrito');
-                }, 800);
+                // Si guardo en la lista de favoritos, hacemos un push en el servicio
+                const cartProductInfo = await this.GetProductInfo(cart.object.product_id);
+                if (cartProductInfo !== null) {
+                  this.auth.SavedCartItems.unshift(cartProductInfo);
+                  // Sumamos 1 al contador de items del carrito
+                  this._product.QtyItems++;
+               // Tenemos los datos del producto entonces hacermos el push
+                  setTimeout(() => {
+                      this._menu.closeLoader();
+                      this._menu.ToastErrors('Artículo guardado al carrito');
+                    }, 800);
+              }
               } else {
                 setTimeout(() => {
                   this._menu.closeLoader();
@@ -121,6 +135,20 @@ export class Tab3Page implements OnInit {
             resolve(true);
           } else {
             resolve(false);
+          }
+        });
+    });
+  }
+  // Obtener datos de un producto despues de haberlo añadido a la lista o carrito, para insertarlo en el arreglo
+  GetProductInfo(productID: number): Promise<ObjectProductClass> {
+    return new Promise((resolve, reject) => {
+      this._product.GetAllProductData('selectNewProductAPI-ID', productID)
+        .subscribe((data) => {
+          if (data.status) {
+            resolve(data.data[0]);
+          } else {
+            resolve(null);
+            return;
           }
         });
     });

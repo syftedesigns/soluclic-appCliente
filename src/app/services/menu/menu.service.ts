@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MenuController, ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { MatSnackBar } from '@angular/material';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +11,7 @@ export class MenuService {
   public displayToolbar: boolean = true;
   public isSearching: boolean = false;
   constructor(private menu: MenuController, public Toast: ToastController,
-              private loader: LoadingController) { }
+              private loader: LoadingController, public snackBar: MatSnackBar) { }
 
   public OpenMenu(triggerMenuid: string): void {
     // this.menu.enable(true, triggerMenuid);
