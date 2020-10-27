@@ -3,13 +3,6 @@
     background-color: linear-gradient(300deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important
 }
 
-* {
-    /*--background: linear-gradient(800deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important;
-    background-color: linear-gradient(800deg, rgb(77, 86, 234) 10%, rgba(45, 197, 176, 1) 100%, rgba(45, 197, 176, 1) 33.33%, rgba(45, 197, 176, 1) 100%) !important*/
-    --background: transparent !important;
-    background: transparent !important
-}
-
 ion-list>* {
     /*color: white !important;
     --color: white !important*/
@@ -53,6 +46,7 @@ ion-list>* {
     top: -2.8em;
     --color: #2DC5B0;
     --background: #FFFFFF;
+    left: -8px;
 }
 
 .fab-button-wishlist {
@@ -61,7 +55,7 @@ ion-list>* {
     --color: #2DC5B0;
     --background: #FFFFFF;
     position: relative;
-    left: 1.3em;
+    left: 1em;
 }
 
 .card-text-w {
@@ -84,17 +78,37 @@ ion-list>* {
 
 .product-card-bg {
     --background: linear-gradient(100deg, rgba(223, 221, 221, 1) 10%, rgba(223, 221, 221, 1) 100%, rgb(102, 30, 30) 100%) !important;
-    background: linear-gradient(100deg, rgba(223, 221, 221, 1) 10%, rgba(223, 221, 221, 1) 100%, rgb(102, 30, 30) 100%) !important
 }
 
 @media only screen and (max-width: 320px) {
+    .title-tap {
+        margin-left: 10%
+    }
     .iphone-sm-mg {
         margin-top: 50%
     }
 }
 
-@media only screen and (min-width: 325px) and (max-width: 360px) {
+@media only screen and (min-width: 325px) and (max-width: 375px) {
+    .title-tap {
+        margin-left: 15%
+    }
     .iphone-sm-mg {
         margin-top: 10%
     }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 425px) {
+    .title-tap {
+        margin-left: 22%
+    }
+}
+
+ion-card-title,
+ion-label {
+    font-family: 'Montserrat-Bold';
+}
+
+.price-title {
+    font-family: 'Montserrat';
 }

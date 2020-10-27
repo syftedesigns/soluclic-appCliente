@@ -7,6 +7,16 @@
     --background: rgba(45, 197, 176, 1) !important;
 }*/
 
-ion-tab-button>ion-icon {
-    font-size: 22px
+ion-label {
+    font-family: 'Nunito-Black' !important;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+ion-tab-button {}
+
+ion-tab-bar {
+    --background: #FFFFFF;
+    box-shadow: 0px -10px 20px 0px #6064703B;
+    border: 0px
 }

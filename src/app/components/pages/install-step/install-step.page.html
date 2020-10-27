@@ -3,7 +3,7 @@
     <ion-header>
         <ion-toolbar>
             <ion-buttons slot="start">
-                <ion-back-button class="back-button-color" defaultHref="/tabs/product/1"></ion-back-button>
+                <ion-back-button mode="ios" text="Volver" class="back-button-color" defaultHref="/tabs/product/1"></ion-back-button>
             </ion-buttons>
             <ion-title>Servicios Adicionales</ion-title>
         </ion-toolbar>
@@ -13,7 +13,7 @@
             <ion-col align-self="center" size="12">
                 <ion-card>
                     <ion-card-header>
-                        <ion-button expand="block" shape="round" color="secondary">
+                        <ion-button (click)="FinishDemo()" expand="block" shape="round" color="secondary">
                             Proceder al checkout
                         </ion-button>
                     </ion-card-header>

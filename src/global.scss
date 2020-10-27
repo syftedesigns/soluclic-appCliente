@@ -13,6 +13,41 @@
 
 /* Font sizes default */
 
+@font-face {
+    font-family: "Montserrat";
+    src: url("./assets/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url("./assets/fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("./assets/fonts/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-Black";
+    src: url("./assets/fonts/Montserrat-Black.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-Light";
+    src: url("./assets/fonts/Montserrat-Light.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-ExtraBold";
+    src: url("./assets/fonts/Montserrat-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat-Italic";
+    src: url("./assets/fonts/Montserrat-Italic.ttf");
+}
+
 .font-18 {
     font-size: 18px;
 }
@@ -353,4 +388,53 @@
     --border-radius: 0px !important;
     --button-color: white !important;
     font-size: 12px !important
+}
+
+// Android queries
+@media only screen and (min-width: 325px) and (max-width: 360px) {
+    .android-btn-mg {
+        position: relative;
+        left: 1.1em
+    }
+}
+
+@media only screen and (min-width: 365px) and (max-width: 425px) {
+    .android-btn-mg {
+        position: relative;
+        left: 1.3em
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 480px) {
+    .android-btn-mg {
+        position: relative;
+        left: 1.3em
+    }
+}
+
+ion-item {
+    ion-label {
+        font-family: 'Montserrat-Medium' !important;
+        font-size: 12px !important;
+    }
+}
+
+ion-title {
+    font-family: 'Montserrat-Bold' !important;
+    font-size: 15px !important;
+}
+
+mat-label {
+    font-family: 'Montserrat' !important;
+    font-size: 12px !important;
+}
+
+input {
+    font-family: 'Montserrat-Bold' !important;
+    font-size: 12px !important;
+}
+
+input::placeholder {
+    font-family: 'Montserrat-Bold' !important;
+    font-size: 12px !important;
 }

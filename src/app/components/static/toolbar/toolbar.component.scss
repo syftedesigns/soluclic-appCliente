@@ -66,8 +66,8 @@
 }
 
 .explorer-bg>* {
-    background: rgba(235, 233, 233, 0.6) !important;
-    --background: rgba(235, 233, 233, 0.6)!important;
+    background: rgba(235, 233, 233, 0.9) !important;
+    --background: rgba(235, 233, 233, 0.9)!important;
     font-weight: bold;
     font-size: 14px
 }
@@ -82,4 +82,8 @@
 
 .separation-button {
     margin-left: 0%
+}
+
+.android-mg {
+    margin-top: -0.4em
 }

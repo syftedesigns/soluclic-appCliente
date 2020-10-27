@@ -16,20 +16,24 @@ import * as $ from 'jquery';
 export class Tab4Page implements OnInit {
   Favorites: ObjectProductClass[] = [];
   URL_IMG: string = SOLUCLIC_IMAGE_URL;
+  isLoading: boolean = false;
   // tslint:disable-next-line:variable-name
   constructor(public _product: ProductService, public auth: AuthService,
               // tslint:disable-next-line:variable-name
               private _menu: MenuService) { }
 
   async ngOnInit() {
+    this.isLoading = true;
     const WishList = await this.GetProductsWishList();
     if (WishList !== null) {
       // Colocamos los productos en un servicio ya que con los tabs, no esta refrescando de forma automatica
       this._product.Favorites = WishList;
       this.Favorites = this._product.Favorites;
+      this.isLoading = false;
       console.log(this.Favorites);
     } else {
       this.Favorites = null;
+      this.isLoading = false;
       this._menu.ToastErrors('No hay productos guardados');
     }
   }

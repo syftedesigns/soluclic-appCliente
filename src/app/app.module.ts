@@ -16,6 +16,9 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { StaticModule } from './components/static/static.module';
 import { PublicComponent } from './components/pages/public/public.component';
+// Cordova
+import { Camera } from '@ionic-native/camera/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,8 @@ import { PublicComponent } from './components/pages/public/public.component';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

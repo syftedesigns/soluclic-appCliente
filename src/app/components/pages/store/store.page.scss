@@ -36,6 +36,7 @@
     top: -2.8em;
     --color: #2DC5B0;
     --background: #FFFFFF;
+    left: -8px;
 }
 
 .fab-button-wishlist {
@@ -44,7 +45,7 @@
     --color: #2DC5B0;
     --background: #FFFFFF;
     position: relative;
-    left: 1.3em;
+    left: 1em;
 }
 
 .card-text-w {
@@ -67,6 +68,27 @@
 
 .product-card-bg {
     --background: linear-gradient(100deg, rgba(223, 221, 221, 1) 10%, rgba(223, 221, 221, 1) 100%, rgb(102, 30, 30) 100%) !important;
+}
+
+ion-card-title,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+mat-hint {
+    font-family: 'Montserrat' !important;
+}
+
+ion-card-title,
+ion-label {
+    font-family: 'Montserrat-Bold' !important;
+}
+
+.price-title {
+    font-family: 'Montserrat' !important;
 }
 
 @media only screen and (max-width: 320px) {

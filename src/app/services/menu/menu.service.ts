@@ -35,7 +35,7 @@ export class MenuService {
     const loader = await this.loader.create({
       duration: 60000,
       message: msgToDisplay,
-      backdropDismiss: false
+      backdropDismiss: true
     });
     await loader.present();
   }

@@ -26,6 +26,7 @@
     top: -2.8em;
     --color: #2DC5B0;
     --background: #FFFFFF;
+    left: -8px;
 }
 
 .fab-button-wishlist {
@@ -34,7 +35,7 @@
     --color: #2DC5B0;
     --background: #FFFFFF;
     position: relative;
-    left: 1.3em;
+    left: 1em;
 }
 
 .card-text-w {
@@ -69,4 +70,17 @@
     .iphone-sm-mg {
         margin-top: 10%
     }
+}
+
+ion-card-title,
+ion-label {
+    font-family: 'Montserrat-Bold';
+}
+
+.price-title {
+    font-family: 'Montserrat';
+}
+
+ion-card-content {
+    font-family: 'Montserrat';
 }

@@ -5,40 +5,19 @@
         <ion-row>
             <ion-col size="12" align-self="center">
                 <ion-slides scrollbar="true" class="budget" [options]="sliderOpts" pager="true">
-                    <ion-slide>
+                    <ion-slide *ngFor="let item of [0,1]">
                         <ion-col class="card-absolute">
-                            <ion-card class="w-50 card-style">
+                            <ion-card class="w-75 card-style">
                                 <ion-card-header class="text-white iphone-sm-mg">
-                                    Lorem impsupm
+                                    <div class="space-10"></div>
+                                    <mat-hint class="text-white">
+                                        Lorem impsupm
+                                    </mat-hint>
                                 </ion-card-header>
                                 <ion-card-content class="font-12 text-white">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit.
-                                </ion-card-content>
-                            </ion-card>
-                        </ion-col>
-                        <ion-img src="./assets/images/balazs-ketyi-1410248-unsplash@2x.png"></ion-img>
-                    </ion-slide>
-                    <ion-slide>
-                        <ion-col class="card-absolute">
-                            <ion-card class="w-50 card-style">
-                                <ion-card-header class="text-white iphone-sm-mg">
-                                    Lorem impsupm
-                                </ion-card-header>
-                                <ion-card-content class="font-12 text-white">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit.
-                                </ion-card-content>
-                            </ion-card>
-                        </ion-col>
-                        <ion-img src="./assets/images/balazs-ketyi-1410248-unsplash@2x.png"></ion-img>
-                    </ion-slide>
-                    <ion-slide>
-                        <ion-col class="card-absolute">
-                            <ion-card class="w-50 card-style">
-                                <ion-card-header class="text-white iphone-sm-mg">
-                                    Lorem impsupm
-                                </ion-card-header>
-                                <ion-card-content class="font-12 text-white">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit.
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit.
+                                    </p>
                                 </ion-card-content>
                             </ion-card>
                         </ion-col>
@@ -93,6 +72,7 @@
                             </ion-card-title>
                             <ion-card-content class="text-white font-10 text-center">
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit sit amet consectetur adipisicing elit.
+
                             </ion-card-content>
                         </ion-card>
                     </ion-col>
@@ -112,9 +92,12 @@
         </ion-row>
         <!-- product -->
         <ion-row align-center>
+            <ion-col offset="4" *ngIf="isLoading" size="12" align-self="center" class="text-center">
+                <mat-spinner></mat-spinner>
+            </ion-col>
             <ion-col *ngFor="let prod of ArrayProducts; let i = index" size="6">
                 <ion-card *ngIf="prod.status ==='1'">
-                    <ion-fab style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
+                    <ion-fab mode="ios" style="margin-top: 1.6em;" vertical="top" horizontal="end" slot="fixed">
                         <form #wishlist="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(wishlist);">
                             <ion-fab-button (click)="TriggerCartClick(i, 'btn-wishlist');" class="fab-button-wishlist" size="small">
                                 <ion-icon class="font-20" name="heart-empty"></ion-icon>
@@ -131,13 +114,14 @@
                         <div class="space-10"></div>
                         <ion-img [alt]="prod.meta_title" [src]="URL_IMG + 'image/' + prod.image"></ion-img>
                     </ion-card-header>
-                    <ion-card-content size="12" class="card-text-w">
+                    <ion-card-content size="12" [ngClass]="{'card-text-w': auth.OperativeSystemVerification() === 'ios'}">
+                        <div class="space-30"></div>
                         <ion-card-title [routerLink]="['/tabs/product/' + prod.product_id]" style="font-size: 14px !important" class="h5 product-title" align="center">
                             {{prod.meta_title}}
                         </ion-card-title>
-                        <ion-fab vertical="top" horizontal="end" slot="fixed">
+                        <ion-fab mode="ios" vertical="top" horizontal="end" slot="fixed">
                             <form #cart="ngForm" ngNativeValidate (ngSubmit)="SaveCartProduct(cart);">
-                                <ion-fab-button (click)="TriggerCartClick(i, 'btn-cart');" class="fab-button-cart" size="small">
+                                <ion-fab-button [ngClass]="{'android-btn-mg': auth.OperativeSystemVerification() === 'android'}" (click)="TriggerCartClick(i, 'btn-cart');" class="fab-button-cart" size="small">
                                     <ion-icon class="font-20" name="cart"></ion-icon>
                                 </ion-fab-button>
                                 <fieldset class="hide">
@@ -172,7 +156,7 @@
                             <ion-col align="center">
                                 <ion-chip>
                                     <ion-avatar>
-                                        <img [alt]="prod.name" [src]="URL_IMG + 'image/' + prod.alianza | noImage:'./assets/images/picture.png'">
+                                        <img [alt]="prod.name" [src]="URL_IMG + 'image/' + prod.alianza | noImage">
                                     </ion-avatar>
                                     <ion-label>
                                         {{prod.name}}

@@ -70,8 +70,8 @@ export class CartPage implements OnInit {
               }, 800);
             } else {
               setTimeout(() => {
-                this.menu.closeLoader();
                 this.menu.ToastErrors('Este artículo ya esta en tu lista');
+                this.menu.closeLoader();
               }, 800);
             }
           });

@@ -17,15 +17,17 @@ import * as $ from 'jquery';
 export class OffersComponent implements OnInit {
   SpecialItems: ObjectProductClass[] = [];
   public URL_IMG: string = SOLUCLIC_IMAGE_URL;
-
+  public isLoading: boolean = false;
   // tslint:disable-next-line:variable-name
   constructor(public modal: ModalController, private _product: ProductService, private _menu: MenuService,
               public auth: AuthService) { }
 
   async ngOnInit() {
+    this.isLoading = true;
     const items = await this.OffersItems();
     if (items !== null) {
       this.SpecialItems = items;
+      this.isLoading = false;
       console.log(this.SpecialItems);
     }
   }

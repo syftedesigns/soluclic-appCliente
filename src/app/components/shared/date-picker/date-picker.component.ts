@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import * as $ from 'jquery';
 import { PickerOptions } from '@ionic/core';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
@@ -44,4 +45,13 @@ export class DatePickerComponent implements OnInit {
   DisplayHourPopup(datePickerId: string) {
     $(`#${datePickerId}`).trigger('click');
   }
+
+  SendForm(formPicker: NgForm): void {
+    if (formPicker.invalid) {
+      throw new Error('Formulario inválido');
+    }
+    this.modalSheet.dismiss(formPicker.value);
+  }
+
+
 }

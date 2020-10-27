@@ -18,6 +18,7 @@ export class AuthService {
   public session: string;
   public SavedWishListItems: ObjectProductClass[] = [];
   public SavedCartItems: ObjectProductClass[] = [];
+  public platformType: string = '';
   // tslint:disable-next-line:variable-name
   public _id: number;
   // tslint:disable-next-line:variable-name
@@ -144,7 +145,7 @@ export class AuthService {
       // Borra el Sqlite
       this.sqlite.remove('sessionCustomer').then(
         (onRemoved) => {
-          console.log(onRemoved);
+          alert(onRemoved);
           if (onRemoved) {
             this.customerData = null;
             this.session = null;
@@ -166,6 +167,14 @@ export class AuthService {
       localStorage.removeItem('token');
       localStorage.removeItem('customer_id');
       this.router.navigate(['/auth/login']);
+    }
+  }
+  // Verificamos el tipo de plataforma
+  public OperativeSystemVerification() {
+    if (this.platform.is('android')) {
+      return 'android';
+    } else if (this.platform.is('ios')) {
+      return 'ios';
     }
   }
 }

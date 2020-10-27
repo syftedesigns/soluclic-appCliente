@@ -23,16 +23,22 @@ export class Tab3Page implements OnInit {
   };
   public ArrayProducts: ObjectProductClass[] = [];
   public URL_IMG: string = SOLUCLIC_IMAGE_URL;
+  public isLoading: boolean = false;
   // tslint:disable-next-line:variable-name
   constructor(private _product: ProductService, private _menu: MenuService,
-              public auth: AuthService) {}
+              public auth: AuthService) {
+                console.log(this.auth.OperativeSystemVerification());
+              }
 
   async ngOnInit() {
+    this.isLoading = true;
     const dbProduct: ObjectProductClass[] = await this.GetAllProducts();
     if (dbProduct !== null) {
       this.ArrayProducts = dbProduct;
+      this.isLoading = false;
       console.log(this.ArrayProducts);
     } else {
+      this.isLoading = false;
       this._menu.ToastErrors('No hay productos en la base de datos');
       return;
     }

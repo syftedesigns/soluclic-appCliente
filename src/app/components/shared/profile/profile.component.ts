@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   operation: string = 'create';
   Addr: string; // ID de la dirección si esta creada
   constructor(private addr: DirService, public global: MenuService,
-              private auth: AuthService, private bottomSheet: MatBottomSheetRef<ProfileComponent>) { }
+              private auth: AuthService, public bottomSheet: MatBottomSheetRef<ProfileComponent>) { }
 
   async ngOnInit() {
     const countries = await this.LoadCountries();

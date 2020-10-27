@@ -4,6 +4,7 @@ import { ProductService } from '../../../services/db/product/product.service';
 import { ObjectProductClass } from '../../../classes/store/product.class';
 import { DirService } from '../../../services/auth/dir.service';
 import { AuthService } from '../../../services/auth/auth.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,8 +14,18 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class ToolbarComponent implements OnInit {
   public Explorer: string = '';
   public ProductFindIndex: ObjectProductClass[] = [];
+  platform: string = '';
   constructor(public menu: MenuService, public productDB: ProductService,
-              public dir: DirService, private auth: AuthService) { }
+              public dir: DirService, private auth: AuthService,
+              public parent: Platform) {
+                if (this.parent.is('android')) {
+                  this.platform = 'android';
+                } else {
+                  if (this.parent.is('ios')) {
+                    this.platform = 'ios';
+                  }
+                }
+              }
 
   ngOnInit() {
     // Verificamos los productos en el carrito

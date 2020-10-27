@@ -20,6 +20,7 @@ export class ExplorerPage implements OnInit {
   public ProdList: ObjectProductClass[] = [];
   public CatName: string = '';
   public URL_IMG: string = SOLUCLIC_IMAGE_URL;
+  public isLoading: boolean = false;
   // tslint:disable-next-line:variable-name
   constructor(private _menu: MenuService, private get: ActivatedRoute,
               // tslint:disable-next-line:variable-name
@@ -42,11 +43,14 @@ export class ExplorerPage implements OnInit {
     setTimeout(() => {
       this._menu.isSearching = false;
     }, 300);
+    this.isLoading = true;
     const productList = await this.GetProductsByPARAMS();
     if (productList !== null) {
       this.ProdList = productList;
+      this.isLoading = false;
       console.log(this.ProdList);
     } else {
+      this.isLoading = false;
       this._menu.ToastErrors('No hay información acerca de lo que necesitas');
       this.router.navigate(['/tabs/tab3']);
     }

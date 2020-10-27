@@ -2,26 +2,26 @@
     <!-- toolbar -->
     <ion-row>
         <ion-col align-self-start>
-            <ion-buttons>
+            <ion-buttons [ngClass]="{'android-mg': platform === 'android'}">
                 <ion-menu-button class="menuToggle"></ion-menu-button>
             </ion-buttons>
         </ion-col>
         <ion-col class="offset-2">
-            <ion-img class="w-25 logo" src="./assets/images/logo-white-sm.png"></ion-img>
+            <ion-img [routerLink]="['/']" class="w-25 logo" src="./assets/images/logo-white-sm.png"></ion-img>
         </ion-col>
         <ion-col>
             <ion-buttons>
-                <ion-button [routerLink]="['/tabs/cart']" class="icon-color">
-                    <ion-icon class="cart-ico" style="margin-left: 1.5em" slot="icon-only" name="cart"></ion-icon>
+                <ion-button icon-only [routerLink]="['/tabs/cart']" color="light" class="icon-color">
+                    <ion-icon style="margin-left: 1.5em; font-size: 22px" name="cart"></ion-icon>
                     <ion-badge *ngIf="productDB.QtyItems !== 0" class="notify-num" color="danger">{{productDB.QtyItems}}</ion-badge>
                 </ion-button>
             </ion-buttons>
         </ion-col>
         <ion-col size="12" align-self="center">
             <form>
-                <ion-searchbar (keyup)="ClearSearch($event.key);" [(ngModel)]="Explorer" name="explorer" (ionClear)="ProductFindIndex = []" (ionChange)="ExplorerProducts($event);" class="bar-explorer"></ion-searchbar>
+                <ion-searchbar (keyup)="ClearSearch($event.key);" placeholder="Buscar" [(ngModel)]="Explorer" name="explorer" (ionClear)="ProductFindIndex = []" (ionChange)="ExplorerProducts($event);" class="bar-explorer"></ion-searchbar>
             </form>
-            <ion-col *ngIf="menu.isSearching" style="position: absolute;" class="w-100 explorer-bg" align-self="center" size="12">
+            <ion-col *ngIf="menu.isSearching" style="position: absolute; z-index: 99;" class="w-100 explorer-bg" align-self="center" size="12">
                 <ion-list class="explorer-bg" lines="none">
                     <ion-item [routerLink]="['/tabs/explorer/' + item.category_id + '/' + item.product_id]" [queryParams]="{'catname': item.catname}" *ngFor="let item of ProductFindIndex">
                         <ion-label>

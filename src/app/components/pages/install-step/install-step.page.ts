@@ -30,4 +30,8 @@ export class InstallStepPage implements OnInit {
       return;
     }
   }
+
+  FinishDemo() {
+    alert('Gracias por probar, necesitamos la app delivery para procesar el pago');
+  }
 }

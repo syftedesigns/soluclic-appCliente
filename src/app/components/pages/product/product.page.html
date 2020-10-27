@@ -3,7 +3,7 @@
     <ion-header>
         <ion-toolbar>
             <ion-buttons slot="start">
-                <ion-back-button class="back-button-color" defaultHref="/tabs/tab3"></ion-back-button>
+                <ion-back-button mode="ios" text="Volver" class="back-button-color" defaultHref="/tabs/tab3"></ion-back-button>
             </ion-buttons>
             <ion-title>
                 {{ProductData.meta_title}}
@@ -107,9 +107,11 @@
                                 <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
                             </ion-fab-button>
                         </ion-fab>
-                        <div class="space-15"></div>
-                        <mat-divider></mat-divider>
-                        <div class="space-15"></div>
+                        <div *ngIf="ArrayFilters !== null && ArrayFilters.length >= 1">
+                            <div class="space-15"></div>
+                            <mat-divider></mat-divider>
+                            <div class="space-15"></div>
+                        </div>
                         <!-- filters -->
                         <div *ngIf="ArrayFilters !== null && ArrayFilters.length >= 1">
                             <ion-chip *ngFor="let filter of ArrayFilters" color="secondary">
@@ -120,9 +122,11 @@
                             </ion-chip>
                         </div>
                         <!-- end filters -->
-                        <div class="space-15"></div>
-                        <mat-divider></mat-divider>
-                        <div class="space-15"></div>
+                        <div *ngIf="ArrayProductsReviews !== null && ArrayProductsReviews.length >= 1">
+                            <div class="space-15"></div>
+                            <mat-divider></mat-divider>
+                            <div class="space-15"></div>
+                        </div>
                         <h3 *ngIf="ArrayProductsReviews !== null && ArrayProductsReviews.length >= 1" class="color-default">
                             Reviews
                         </h3>
@@ -137,9 +141,11 @@
                                 <div class="space-15"></div>
                             </ion-col>
                         </ion-row>
-                        <div class="space-15"></div>
-                        <mat-divider></mat-divider>
-                        <div class="space-15"></div>
+                        <div *ngIf="ArrayProductsRealted !== null && ArrayProductsRealted.length >= 1">
+                            <div class="space-15"></div>
+                            <mat-divider></mat-divider>
+                            <div class="space-15"></div>
+                        </div>
                         <h2 *ngIf="ArrayProductsRealted !== null && ArrayProductsRealted.length >= 1" class="color-default">
                             Productos relacionados
                         </h2>
@@ -153,15 +159,17 @@
                                         </ion-fab-button>
                                     </ion-fab>
                                     <ion-card-header>
-                                        <ion-img [routerLink]="['/tabs/product/' + related.product_id]" [src]="SOLUCLIC_URL + 'image/' + related.image" [alt]="related.meta_title"></ion-img>
+                                        <ion-img class="w-50 offset-3" [routerLink]="['/tabs/product/' + related.product_id]" [src]="SOLUCLIC_URL + 'image/' + related.image" [alt]="related.meta_title"></ion-img>
                                     </ion-card-header>
                                     <ion-card-content>
                                         <h2 [routerLink]="['/tabs/product/' + related.product_id]" class="color-default">
                                             {{related.meta_title}}
                                         </h2>
                                         <div class="space-15"></div>
-                                        <p style="font-size: 12px !important">
-                                            {{related.meta_description}}
+                                        <p>
+                                            <mat-hint style="font-size: 12px !important">
+                                                {{related.meta_description}}
+                                            </mat-hint>
                                         </p>
                                         <div class="space-15"></div>
                                         <ion-row>
@@ -179,7 +187,7 @@
                                             </ion-col>
                                         </ion-row>
                                         <ion-fab vertical="top" horizontal="end" slot="fixed">
-                                            <ion-fab-button size="small" color="default">
+                                            <ion-fab-button style="position: relative; top: -2em" size="small" color="default">
                                                 <ion-icon style="color: #2DC5B0" name="cart"></ion-icon>
                                             </ion-fab-button>
                                         </ion-fab>

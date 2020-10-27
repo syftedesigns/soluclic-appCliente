@@ -93,9 +93,9 @@ export class MenuComponent implements OnInit {
     this.route.navigate([`/${urlToNavigate}`]);
   }
   logout() {
-    this.menu.close();
+    this.auth.Logout();
     setTimeout(() => {
-      this.auth.Logout();
+      this.menu.close();
     }, 500);
   }
 }

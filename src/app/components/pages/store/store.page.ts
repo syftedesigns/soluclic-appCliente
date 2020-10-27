@@ -22,6 +22,7 @@ export class StorePage implements OnInit {
   public ArrayProducts: ObjectProductClass[] = [];
   public StoreName: string = '';
   public URL_IMG: string = SOLUCLIC_IMAGE_URL;
+  public isLoading: boolean = false;
   constructor(private modal: ModalController, private get: ActivatedRoute,
               // tslint:disable-next-line:variable-name
               private _product: ProductService, private _menu: MenuService,
@@ -37,9 +38,11 @@ export class StorePage implements OnInit {
   }
 
   async ngOnInit() {
+    this.isLoading = true;
     const StoreProducts = await this.FindAllProductStore();
     if (StoreProducts !== null) {
       this.ArrayProducts = StoreProducts;
+      this.isLoading = false;
     }
   }
 

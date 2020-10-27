@@ -15,11 +15,11 @@
         <ion-row align="center">
             <ion-col align-self="center">
                 <ion-card>
-                    <form>
+                    <form ngNativeValidate #formPicker="ngForm" (ngSubmit)="SendForm(formPicker)">
                         <div class="form-group">
                             <mat-form-field class="w-75">
                                 <mat-label>Selecciona una fecha</mat-label>
-                                <input onkeypress="return false;" matInput [matDatepicker]="picker" placeholder="dd/MM/YYYY">
+                                <input required ngModel name="date" onkeypress="return false;" matInput [matDatepicker]="picker" placeholder="dd/MM/YYYY">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
@@ -31,14 +31,14 @@
                             </mat-form-field>-->
                             <ion-item>
                                 <ion-label style="font-size: 12px !important">Selecciona la hora</ion-label>
-                                <ion-datetime displayFormat="HH:mm:ss" [(ngModel)]="dateHour" name="datetime"></ion-datetime>
+                                <ion-datetime required displayFormat="HH:mm:ss" [(ngModel)]="dateHour" name="datetime"></ion-datetime>
                                 <mat-icon class="material-icons" matSuffix>access_time</mat-icon>
                             </ion-item>
                             <div class="space-10"></div>
                             <mat-hint style="font-size: 10px !important">Pulsa los iconos para desplegar la ayuda rapida</mat-hint>
                         </div>
                         <div class="form-group">
-                            <ion-button expand="full" shape="round" color="secondary">
+                            <ion-button type="submit" expand="full" shape="round" color="secondary">
                                 Configurar
                             </ion-button>
                         </div>
